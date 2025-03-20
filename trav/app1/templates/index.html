@@ -1,0 +1,1319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glidego - Home</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/YOUR_KIT.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    {% comment %} <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" /> {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link href="{% static 'app1/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="{% static 'app1/css/responsive.css' %}" rel="stylesheet" />
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif] -->
+    <style>
+      
+      .content-box {
+        background: none !important; 
+        box-shadow: none !important; 
+      }
+      
+    
+      .content-box h2,
+      .content-box .text {
+        color: #008080 !important; 
+      }
+      .icon-box i {
+        font-size: 40px;
+        color: darkgreen;
+        margin-bottom: 10px;
+    }
+    .destination-finder {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+  }
+  .inline-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+  }
+  .form-group {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+  }
+  .inline-form label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #fff;
+  }
+  .inline-form select, .inline-form button {
+      padding: 12px;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+  }
+  .inline-form select {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+  }
+  .inline-form button {
+    margin-top: 25px;
+      background: linear-gradient(90deg,rgb(1, 45, 18),rgb(3, 63, 42));
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+  }
+  .inline-form button:hover {
+      background: linear-gradient(90deg,rgb(2, 87, 36),rgb(5, 105, 58));
+  }
+  @media (max-width: 768px) {
+      .inline-form {
+          flex-direction: column;
+          gap: 15px;
+      }
+      .form-group {
+          min-width: 100%;
+      }
+  }
+ 
+    </style>
+  </head>
+
+  <body>
+    {% comment %} <div class="page-wrapper">
+      <div class="search-backdrop"></div> {% endcomment %}
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand me-auto" href="{% url 'index' %}"> 
+          <img src="{% static 'app1/images/logo2.png' %}" alt="Logo" style="height: 50px; width: 130px;">  
+         </a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page"  href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2"  href="{% url 'destinations' %}">Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="{% url 'trekking' %}">Activities</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="{% url 'Services' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="{% url 'booking' %}">Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2"href="{% url 'about_us' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {% comment %} <a href="#" class="loginsign" data-bs-toggle="modal" data-bs-target="#authModal" >Login/signup</a> {% endcomment %}
+        
+        <!-- Dynamic Auth Buttons -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger ms-2">Logout</a>
+        {% else %}
+            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#authModal">Login/Signup</a>
+        {% endif %}
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      </div>
+    </nav>
+    <!--end navbar-->
+   
+
+      <!-- Main Header -->
+      {% comment %} <header class="main-header header-style-two">
+        <div class="header-upper">
+          <div class="container">
+            <div class="d-flex align-items-center">
+              <div class="logo-box me-auto">
+                <div class="logo">
+                  <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="Glidego" class="glidego-logo" /></a>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-lg ms-auto">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="bi bi-list"></i></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav navigation">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'trekking' %}">Adventure & Activities</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'booking' %}">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'about_us' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li>
+                      <button class="btn btn-green" data-bs-toggle="modal" data-bs-target="#authModal">Login / Signup</button>
+                        </li>
+                  </ul> {% endcomment %}
+                  {% comment %} <form class="search-form d-flex ms-3" role="search" method="GET" action="#">
+                    <input class="search-bar form-control" type="search" placeholder="Search..." aria-label="Search" name="q"> {% endcomment %}
+                    {% comment %} <button class="search-btn btn btn-outline-success ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button> {% endcomment %}
+                {% comment %} </form> {% endcomment %}
+                {% comment %} </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header> {% endcomment %}
+
+      {% comment %} <header class="main-header header-style-two">
+        <div class="header-upper">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                     {% endcomment %}
+                    <!-- Left Side: Logo -->
+                    {% comment %} <div class="logo-box">
+                        <a href="{% url 'index' %}" title="GlideGo">
+                            <img src="{% static 'app1/images/logo2.png' %}" alt="GlideGo" class="glidego-logo">
+                        </a>
+                    </div> {% endcomment %}
+    
+                    <!-- Mobile Menu Toggle Button -->
+                    {% comment %} <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" 
+                        data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+                        <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+                    </button> {% endcomment %}
+    
+                    <!-- Navbar (for larger screens) -->
+                    {% comment %} <nav class="navbar navbar-expand-lg d-none d-lg-block">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav navigation mx-auto">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'destinations' %}">Destinations</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'trekking' %}">Adventure & Activities</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Services' %}">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Booking</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav> {% endcomment %}
+    
+                    <!-- Login/Signup Button (always visible) -->
+                    {% comment %} <button class="btn btn-green ms-3 d-none d-lg-inline-block" data-bs-toggle="modal" data-bs-target="#authModal">
+                        Login / Signup
+                    </button> {% endcomment %}
+                {% comment %} </div>
+            </div>
+        </div>
+    </header> {% endcomment %}
+    {% comment %} <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+      <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'destinations' %}">Destinations</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'trekking' %}">Adventure & Activities</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'Services' %}">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Booking</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+  
+          <!-- Login/Signup Button inside Sidebar -->
+          <button class="btn btn-green w-100 mt-3" data-bs-toggle="modal" data-bs-target="#authModal">
+              Login / Signup
+          </button>
+      </div>
+  </div> {% endcomment %}
+  
+    {% comment %} <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          var navbarToggler = document.querySelector(".navbar-toggler");
+          var navbarCollapse = document.querySelector(".navbar-collapse");
+  
+          document.querySelectorAll(".nav-link").forEach(function (link) {
+              link.addEventListener("click", function () {
+                  if (navbarCollapse.classList.contains("show")) {
+                      navbarToggler.click(); // Close dropdown
+                  }
+              });
+          });
+      });
+  </script> {% endcomment %}
+      {% comment %} <section class="hidden-bar" style="display: none;">
+        <div class="hidden-bar-wrapper">
+          <div class="hidden-bar-closer">
+            <span class="icon">
+              <svg class="icon-close" role="presentation" viewBox="0 0 16 14">
+                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+              </svg>
+            </span>
+          </div>
+           <div class="nav-logo-box">
+            <div class="logo">
+              <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="GlideGo" /></a>
+            </div>
+          </div> 
+          <div class="side-menu">
+            <ul class="navigation clearfix">
+              <li class="current dropdown">
+                <a href="{% url 'index' %}">Home</a>
+              </li>
+              <li>
+                <a href="{% url 'destinations' %}">Destinations</a>
+              </li>
+              <li>
+                <a href="{% url 'trekking' %}">Adventure & Activities</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'Services' %}">Services</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'booking' %}">Booking</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'about_us' %}">About</a>
+              </li>
+              <li>
+                <a href="{% url 'contact' %}">Contact</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </section> {% endcomment %}
+      <!-- Banner Section -->
+      <section class="banner-section">
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="{% static 'app1/images/background/back_video.mp4' %}" type="video/mp4"/>
+          </video>
+        </div>
+
+        {% comment %} <div class="banner-container">
+          <div class="banner-slider-box"> {% endcomment %}
+            <!-- Slide Item -->
+            {% comment %} <div class="slide-item">
+              <div class="content-box">
+                <div class="inner">
+                  <h2>Explore with GlideGo</h2> {% endcomment %}
+                  {% comment %} <div class="text">Whether you're seeking thrilling adventures or peaceful retreats, GlideGo is your trusted companion in navigating the journey of a lifetime.</div> {% endcomment %}
+                {% comment %} </div>
+              </div>
+            </div>
+          </div> {% endcomment %}
+          <div class="destination-finder">
+            <form action="{% url 'search_destinations' %}" method="GET" class="inline-form">
+                <div class="form-group">
+                    <label for="location">Destination</label>
+                    <select id="location" name="location">
+                        <option value="">Select a Destination</option>
+                        {% for destination in destination_list %}
+                        <option value="{{ destination.id }}">{{ destination.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" name="category">
+                      <option value="">Select Category</option>
+                        {% for key, value in categories %}
+                <option value="{{ key }}">{{ value }}</option>
+            {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="activities">Activities</label>
+                    <select id="activities" name="activities">
+                        <option value="">Select Activities</option>
+                        {% for activity in activities %}
+                        <option value="{{ activity.activity_type }}">{{ activity.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Find Destination</button>
+                </div>
+            </form>
+        </div>
+        </div>
+      </section>
+
+      <!-- End Banner Section -->
+
+      <!-- About Us Section -->
+
+      <section class="about-us-section">
+        <div class="auto-container">
+          <div class="title-box centered">
+            <h2>Your Gateway to the World</h2>
+          </div>
+          <div class="about-content text-center">
+            {% comment %} <p>Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experiences of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</p> {% endcomment %}
+
+            <div class="support-info">
+              <div class="support-card">
+                <h4>Personalized Travel Planning</h4>
+                <p>Our expert team works closely with you to create customized itineraries that meet your preferences and budget. Enjoy hassle-free travel with personalized attention.</p>
+              </div>
+              <div class="support-card">
+                <h4>Expert Team for Support</h4>
+                <p>Our dedicated support team is available 24/7 to ensure your travel plans go smoothly. With a decade of experience, we handle all queries and concerns promptly.</p>
+              </div>
+              <div class="support-card">
+                <h4>Urgent Support for Client</h4>
+                <p>In case of emergencies, our team is just a call away, ensuring you have immediate assistance whenever you need it, no matter where you are in the world.</p>
+              </div>
+            </div>
+
+            <blockquote>"Since 2014, we've helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives."</blockquote>
+          </div>
+        </div>
+      </section>
+
+     
+
+      <section class="services-section">
+        <div class="auto-container">
+          <div class="title-box centered">
+            <h2>Why Choose Glidego</h2>
+          </div>
+          <div class="row justify-content-center">
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  {% comment %} <img src="{% static 'app1/images/resource/icon-1.svg' %}" alt="Affordable Hotel" /> {% endcomment %}
+                  <i class="fas fa-hotel"></i> 
+                </div>
+                <h4>Affordable Hotel</h4>
+                <p>Enjoy comfortable stays at budget-friendly prices without compromising quality.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  <i class="fas fa-utensils"></i>
+                </div>
+                <h4>Food & Drinks</h4>
+                <p>Savor delicious cuisines and refreshing beverages catered to all tastes.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  <i class="fas fa-shield-alt"></i> 
+                </div>
+                <h4>Safety Guide</h4>
+                <p>Your safety is our priority. Get expert guidance for a secure experience.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  <i class="fas fa-hiking"></i>
+                </div>
+                <h4>Adventures</h4>
+                <p>Embark on thrilling adventures that create unforgettable memories.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  <i class="fas fa-globe-americas"></i> 
+                </div>
+                <h4>Around The World</h4>
+                <p>Explore diverse cultures and breathtaking landscapes across the globe.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card">
+                <div class="icon-box">
+                  <i class="fas fa-plane"></i> 
+                </div>
+                <h4>Fastest Travel</h4>
+                <p>Experience quick and efficient travel options tailored to your needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending Destinations Section -->
+
+      {% comment %} <section class="destinations-section">
+        <div class="container">
+          <h2>Where to next?</h2>
+          <div class="row">
+            <!-- Block for Agra -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img class="dest_imag" src="{% static 'app1/images/resource/index/agra.jpg' %}" style="height: 200px; width: 100%;" alt="Agra" />
+              <h3>Agra</h3>
+              <p class="location">India</p>
+              <p class="tags">CULTURAL RELAX +1</p>
+              <p class="price">40k</p>
+              <p class="description">Famous for the iconic Taj Mahal, Agra is a historical city that attracts millions of visitors seeking culture and beautiful architecture.</p>
+              <a href="{% url 'destinationdetails' destination_name='agra' %}" class="details-btn">DETAILS</a>
+            </div>
+
+            <!-- Block for Goa -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img class="dest_imag" src="{% static 'app1/images/resource/index/Goa.jpg' %}" style="height: 200px; width: 100%;" alt="Goa" />
+              <h3>Goa</h3>
+              <p class="location">India</p>
+              <p class="tags">BEACH RELAX +1</p>
+              <p class="price">40k</p>
+              <p class="description">Known for its stunning beaches and vibrant nightlife, Goa is a perfect destination for relaxation and adventure.</p>
+              <a href="{% url 'destinationdetails' destination_name='Goa' %}" class="details-btn">DETAILS</a>
+            </div>
+
+            <!-- Block for Jaipur -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img class="dest_imag" src="{% static 'app1/images/resource/index/jaipur.jpg' %}" style="height: 200px; width: 100%;" alt="Jaipur" />
+              <h3>Jaipur</h3>
+              <p class="location">India</p>
+              <p class="tags">CULTURAL HISTORICAL +1</p>
+              <p class="price">50k</p>
+              <p class="description">Jaipur, known as the Pink City, is famous for its rich history, magnificent forts, and palaces.</p>
+              <a href="{% url 'destinationdetails' destination_name='Jaipur' %}" class="details-btn">DETAILS</a>
+            </div>
+
+            <!-- Block for Kerala -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img class="dest_imag" src="{% static 'app1/images/resource/index/kerala.jpg' %}" style="height: 200px; width: 100%;" alt="Kerala" />
+              <h3>Kerala</h3>
+              <p class="location">India</p>
+              <p class="tags">NATURE RELAX +1</p>
+              <p class="price">30k</p>
+              <p class="description">Known for its backwaters and lush landscapes, Kerala is a tranquil destination for nature lovers.</p>
+              <a href="{% url 'destinationdetails' destination_name='Kerala' %}" class="details-btn">DETAILS</a>
+            </div>
+
+            <!-- Block for Ladakh -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img src="{% static 'app1/images/resource/index/ladakh.jpg' %}" style="height: 200px; width: 100%;" alt="Ladakh" />
+              <h3>Ladakh</h3>
+              <p class="location">India</p>
+              <p class="tags">ADVENTURE CULTURAL +1</p>
+              <p class="price">50k</p>
+              <p class="description">Ladakh is known for its stunning landscapes and adventurous trekking routes, making it a unique travel destination.</p>
+              <a href="{% url 'destinationdetails' destination_name='Ladakh' %}" class="details-btn">DETAILS</a>
+            </div>
+
+            <!-- Block for Rajasthan -->
+            <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+              <img class="dest_imag" src="{% static 'app1/images/resource/index/rajasthan.jpg' %}" style="height: 200px; width: 100%;" alt="Rajasthan" />
+              <h3>Rajasthan</h3>
+              <p class="location">India</p>
+              <p class="tags">CULTURAL HISTORICAL +1</p>
+              <p class="price">40k</p>
+              <p class="description">Rajasthan is famed for its majestic palaces, vibrant culture, and the Thar Desert.</p>
+              <a href="{% url 'destinationdetails' destination_name='Rajasthan' %}" class="details-btn">DETAILS</a>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+      <section class="destinations-section">
+        <div class="container">
+            <h2>Where to next?</h2>
+            <div class="row">
+                {% for destination in destination_list %}
+                <div class="destination-card col-lg-4 col-md-6 col-sm-12">
+                    <img class="dest_imag" src="{{ destination.image.url }}" style="height: 200px; width: 100%;" alt="{{ destination.name }}" />
+                    <h3>{{ destination.name }}</h3>
+                    <p class="location">{{ destination.location }}</p>
+                    <p class="tags">{{ destination.category }}</p>
+                    <p class="price">{{ destination.formatted_price }}</p>
+                    <p class="description">{{ destination.description }}</p>
+                    <a href="{% url 'destination_detail' destination.id  %}" class="details-btn">DETAILS</a>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section> 
+    {% comment %} <section class="destinations-section">
+      <div class="container">
+          <h2 class="text-center">Where to next?</h2>
+          <div class="row gy-4"> <!-- gy-4 adds spacing between rows -->
+              {% for destination in destination_list %}
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="destination-card">
+                      <img class="dest_imag img-fluid" src="{{ destination.image.url }}" style="height: 200px; width: 100%;" alt="{{ destination.name }}" />
+                      <h3>{{ destination.name }}</h3>
+                      <p class="location">{{ destination.location }}</p>
+                      <p class="tags">{{ destination.category }}</p>
+                      <p class="price">{{ destination.price }}k</p>
+                      <p class="description">{{ destination.description }}</p>
+                      <a href="{% url 'destination_detail' destination.id %}" class="btn btn-primary">DETAILS</a>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </section> {% endcomment %}
+  
+
+      <!-- Adventure and Activities -->
+
+      {% comment %} <section class="popular-section">
+        <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/back1.jpg' %}');"></div>
+        <div class="auto-container">
+          <div class="title-box centered"> {% endcomment %}
+            {% comment %} <div class="subtitle">Modern & Beautiful</div> {% endcomment %}
+            {% comment %} <h2><i class="bg-vector"></i><span>Activities</span></h2>
+          </div>
+          <div class="carousel-box">
+            <div class="popular-carousel owl-theme owl-carousel"> {% endcomment %}
+              <!-- Adventure Card Block 1 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/trekking.jpg' %}" style="width: 310px; height: 291px;" alt="Moscow Red City Land" /></a>
+                  <div class="price">
+                    <span>12k</span>
+                  </div>
+                </div>
+                <div class="content">
+
+                  <h4>
+                    <span class="destination-name">Nepal</span>
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                     <a href="{% url 'trekking' %}#trekk">Trekking Adventure</a>
+                    </h4>
+                  <p class="text">Embark on a breathtaking trekking experience through rugged landscapes and scenic trails.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 2 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/kayaking.jpg' %}" style="width: 310px; height: 291px;" alt="Yellowstone & Mt Rushmore" /></a>
+                  <div class="price">
+                    <span>8k</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4>
+                    <span class="destination-name">Canada</span>
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                    <a href="{% url 'trekking' %}#trekk">Kayaking Adventure</a>
+                  </h4>
+                  <p class="text">Paddle through crystal-clear waters, explore hidden coves, and experience the thrill of kayaking.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+                  
+              </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 3 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/boating.jpg' %}" style="width: 310px; height: 291px;" alt="Andean Treks" /></a>
+                  <div class="price">
+                    <span>5k</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4>
+                    <span class="destination-name">Canada</span>
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                    <a href="{% url 'trekking' %}#trekk">Boating Expedition</a></h4>
+                  <p class="text">Set sail on a memorable journey across serene lakes and roaring rivers with our boating tours.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+              </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 4 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/climbing.jpg' %}" style="width: 310px; height: 291px;" alt="Rocky Mountain Adventure" /></a>
+                  <div class="price">
+                    <span>7k</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4>
+                    <span class="destination-name">Canada</span> 
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                    <a href="{% url 'trekking' %}#trekk">Mountain Climbing</a></h4>
+                  <p class="text">Challenge yourself with an exhilarating climb to the peaks of stunning mountain ranges.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+              </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 5 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/paragliding.jpg' %}" style="width: 310px; height: 291px;" alt="Safari Expedition" /></a>
+                  <div class="price">
+                    <span>5k</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4>
+                    <span class="destination-name">Canada</span> 
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                    <a href="{% url 'trekking' %}">Paragliding</a></h4>
+                  <p>Soar through the sky and enjoy a bird’s-eye view of breathtaking landscapes while paragliding.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+              </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 6 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'trekking' %}"><img src="{% static 'app1/images/resource/trek/camping.jpg' %}" style="width: 310px; height: 291px;" alt="Tropical Paradise" /></a>
+                  <div class="price">
+                    <span>6k</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4>
+                    <span class="destination-name">Canada</span> 
+                    <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                    <a href="{% url 'trekking' %}#trekk">Camping Experience</a></h4>
+                  <p>Spend nights under the stars, gather around campfires, and enjoy nature like never before.</p>
+                  <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+
+      <section class="popular-section">
+        {% comment %} <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/back1.jpg' %}');"></div> {% endcomment %}
+        <div class="auto-container">
+            <div class="title-box centered">
+                <h2><i class="bg-vector"></i><span>Activities</span></h2>
+            </div>
+            <div class="carousel-box">
+              <div class="popular-carousel owl-carousel owl-theme">
+                    {% for activity in activities %}
+                    <div class="adventure-card">
+                        <div class="image-box">
+                            {% comment %} <a href="{% url 'activity_detail' activity.url_slug %}"> {% endcomment %}
+                              <a href="{% url 'trekking' %}#trekk">
+                                {% comment %} <img src="{{ activity.image.url }}" style="width: 310px; height: 291px;" alt="{{ activity.name }}" /> {% endcomment %}
+                                <img src="{{ activity.image.url }}" style="width: 310px; height: 210px;" alt="{{ activity.name }}" />
+                            </a>
+                            <div class="price">
+                                <span >{{ activity.formatted_price }}k</span>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h4>
+                                <span class="destination-name">{{ activity.destination.name }}</span>
+                                <span class="separator">&nbsp;&nbsp;|&nbsp;&nbsp;</span> 
+                                {% comment %} <a href="{% url 'activity_detail' activity.url_slug %}">{{ activity.title }}</a> {% endcomment %}
+                                <a href="{% url 'trekking' %}#trekk" style="color: darkgreen;">{{ activity.name }}</a>
+                            </h4>
+                            {% comment %} <p class="text">{{ activity.description }}</p> {% endcomment %}
+                            <a href="{% url 'booking' %}#book" class="btn btn-primary book-now-btn">Book Now</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+      <!-- Group Travel Section -->
+      {% comment %} <section class="group-travel">
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/resource/index/image2.jpg' %}); width: 1910px; height:615px;"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <div class="row clearfix">
+              <!-- Block -->
+              <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                  <div class="title">
+                    <h4>Group Travel to Himalay</h4>
+                  </div>
+                  <div class="content">
+                    <div class="info">
+                      <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                    </div>
+                    <div class="price">
+                      <span>$235.00</span>
+                    </div>
+                    <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
+                    <div class="link-box">
+                      <a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="images/icons/logo-icon.svg" alt="" title="" /></i></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="travel-block-one alternate col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                  <div class="title">
+                    <h4>Adventure in the Alps</h4>
+                  </div>
+                  <div class="content">
+                    <div class="info">
+                      <span class="i-block"><i class="icon far fa-clock"></i>7 days</span> &ensp; | &ensp; <span class="i-block">358P, Alps Region</span>
+                    </div>
+                    <div class="price">
+                      <span>$450.00</span>
+                    </div>
+                    <div class="text">Experience breathtaking views, cozy lodges, and thrilling outdoor activities in the Alps.</div>
+                    <div class="link-box">
+                      <a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="images/icons/logo-icon.svg" alt="" title="" /></i></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Testimonials Section -->
+      {% comment %} <section class="testimonials-one">
+        <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/back9.jpg' %}'); width:100%; height:100%;"></div>
+        <div class="auto-container">
+            <div class="title-box centered">
+                <h2><i class="bg-vector"></i><span>What Our Travelers Say</span></h2>
+            </div>
+            <div class="carousel-box">
+                <div class="testi-carousel owl-theme owl-carousel"> {% endcomment %}
+    
+                    <!-- Testimonial 1 -->
+                    {% comment %} <div class="testi-block">
+                        <div class="inner-box"> {% endcomment %}
+                            {% comment %} <div class="image">
+                                <img src="{% static 'app1/images/resource/guide/human1.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                            </div> {% endcomment %}
+                            {% comment %} <div class="text">"Glidego made my dream vacation a reality! The itinerary was well-planned, and the local guides were knowledgeable and friendly. Highly recommended!"</div>
+                            <div class="info">
+                                <div class="name">Sarah Williams</div>
+                                <div class="clearfix">
+                                    <div class="designation">Adventure Enthusiast</div>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+    
+                    <!-- Testimonial 2 -->
+                    {% comment %} <div class="testi-block">
+                        <div class="inner-box"> {% endcomment %}
+                            {% comment %} <div class="image">
+                                <img src="{% static 'app1/images/resource/guide/human2.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                            </div> {% endcomment %}
+                            {% comment %} <div class="text">"From start to finish, my experience with Glidego was seamless! The accommodations were top-notch, and the activities were unforgettable. Can't wait for my next trip!"</div>
+                            <div class="info">
+                                <div class="name">Michael Brown</div>
+                                <div class="clearfix">
+                                    <div class="designation">Frequent Traveler</div>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+     {% endcomment %}
+                    <!-- Testimonial 3 -->
+                    {% comment %} <div class="testi-block">
+                        <div class="inner-box"> {% endcomment %}
+                            {% comment %} <div class="image">
+                                <img src="{% static 'app1/images/resource/guide/human3.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                            </div> {% endcomment %}
+                            {% comment %} <div class="text">"I had an amazing experience with Glidego! Everything was organized perfectly, and the customer support was excellent. Would book again in a heartbeat!"</div>
+                            <div class="info">
+                                <div class="name">Emily Johnson</div>
+                                <div class="clearfix">
+                                    <div class="designation">Solo Explorer</div>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+     {% endcomment %}
+                    <!-- Testimonial 4 -->
+                    {% comment %} <div class="testi-block">
+                        <div class="inner-box"> {% endcomment %}
+                            {% comment %} <div class="image">
+                                <img src="{% static 'app1/images/resource/guide/human4.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                            </div> {% endcomment %}
+                            {% comment %} <div class="text">"The best travel experience I've ever had! Glidego handled everything, from bookings to guided tours. It was stress-free and enjoyable!"</div>
+                            <div class="info">
+                                <div class="name">Daniel Carter</div>
+                                <div class="clearfix">
+                                    <div class="designation">Backpacker</div>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+    
+                    <!-- Testimonial 5 -->
+                    {% comment %} <div class="testi-block">
+                        <div class="inner-box"> {% endcomment %}
+                            {% comment %} <div class="image">
+                                <img src="{% static 'app1/images/resource/guide/human6.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                            </div> {% endcomment %}
+                            {% comment %} <div class="text">"I traveled with my family, and Glidego ensured everything was taken care of. The destinations were beautiful, and the service was exceptional!"</div>
+                            <div class="info">
+                                <div class="name">Laura Smith</div>
+                                <div class="clearfix">
+                                    <div class="designation">Family Traveler</div>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+     {% endcomment %}
+                {% comment %} </div> <!-- End of testi-carousel --> {% endcomment %}
+            {% comment %} </div>
+        </div>
+    </section> {% endcomment %}
+<section class="testimonials-one">
+      {% comment %} <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/back9.jpg' %}'); width:100%; height:100%;"></div> {% endcomment %}
+      <div class="auto-container">
+          <div class="title-box centered">
+              <h2><i class="bg-vector"></i><span>What Our Travelers Say</span></h2>
+          </div>
+          <div class="carousel-box">
+              <div class="testi-carousel owl-theme owl-carousel">
+                  {% for review in reviews %}
+                  <div class="testi-block">
+                      <div class="inner-box">
+                          {% comment %} 
+                          <div class="image">
+                              <img src="{% static 'app1/images/resource/guide/human1.jpg' %}" alt="Traveler Image" style="width: 94px; height: 132px;" />
+                          </div> 
+                          {% endcomment %}
+                          <div class="text">"{{ review.comment }}"</div>
+                          <div class="info">
+                              <div class="name">{{ review.name }}</div>
+                              <div class="destination">{{review.destination}}</div>
+                              <div class="clearfix">
+                                  <div class="designation">
+                                      {% if review.activity %}
+                                          {{ review.activity.name }}
+                                      {% else %}
+                                          Traveler
+                                      {% endif %}
+                                  </div>
+                                  <div class="rating">
+                                      <div class="stars">
+                                          {% for i in "12345"|make_list %}
+                                              {% if forloop.counter <= review.rating %}
+                                                  <i class="fa fa-star"></i>
+                                              {% else %}
+                                                  <i class="fa fa-star-o"></i>
+                                              {% endif %}
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div> 
+          </div>
+      </div>
+  </section>
+  
+ 
+<section id="review-section" class="py-5">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+              <div class="card shadow-lg border-0 rounded-4">
+                  <div class="card-body">
+                      <!-- Form Heading -->
+                      <h3 class="text-center py-3 rounded-3" style="color: darkgreen; background: none;">
+                          <strong>Submit Your Review</strong>
+                      </h3>
+                      <form method="POST" action="{% url 'submit_review' %}" class="review-form">
+                          {% csrf_token %}
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="name" style="color: darkgreen;">Full Name *</label>
+                                      <input type="text" id="name" name="name" class="form-control" placeholder="Enter Full Name" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="destination" style="color: darkgreen;">Destination *</label>
+                                      <select id="destination" name="destination" class="form-control" required>
+                                          <option value="">Select Destination</option>
+                                          {% for dest in destination_list %}
+                                              <option value="{{ dest.id }}">{{ dest.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="activity" style="color: darkgreen;">Activity</label>
+                                      <select id="activity" name="activity" class="form-control">
+                                          <option value="">Select Activity</option>
+                                          {% for act in activities %}
+                                              <option value="{{ act.id }}">{{ act.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="rating" style="color: darkgreen;">Rating *</label>
+                                      <select id="rating" name="rating" class="form-control" required>
+                                          <option value="">Select Rating</option>
+                                          {% for i in "12345" %}
+                                              <option value="{{ i }}">{{ i }} Stars</option>
+                                          {% endfor %}
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="comment" style="color: darkgreen;">Comment *</label>
+                              <textarea id="comment" name="comment" class="form-control" placeholder="Write your review..." rows="4" required></textarea>
+                          </div>
+                          <div class="text-center mt-4">
+                              <button type="submit" class="btn px-4" style="background-color: darkgreen; color: white;">Submit Review</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+      
+
+
+      <footer class="main-footer">
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/background/back3.jpg' %});"></div>
+        <div class="info-section">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <div class="footer-logo">
+                  <a href="{% url 'index' %}" title="Treker"><img src="{% static 'app1/images/logo2.png' %}" alt="Treker" class="glidego-logo" /></a>
+                </div>
+                <p class="footer-text">Glidego was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</p>
+              </div>
+              <div class="col-lg-8 col-md-12 text-center text-lg-end">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>About Us</h6>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="#">About Us</a>
+                      </li>
+                      <li>
+                        <a href="#">Community Blog</a>
+                      </li>
+                      {% comment %} <li>
+                        <a href="#">Rewards</a>
+                      </li> {% endcomment %}
+                      <li>
+                        <a href="#">Work with Us</a>
+                      </li>
+                      <li>
+                        <a href="#">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h6>Explore Glidego</h6>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="#">Account</a>
+                      </li>
+                      <li>
+                        <a href="#">Privacy Policy</a>
+                      </li>
+                      {% comment %} <li>
+                        <a href="#">Affiliate Program</a>
+                      </li> {% endcomment %}
+                      {% comment %} <li>
+                        <a href="#">Our Partners</a>
+                      </li> {% endcomment %}
+                      <li>
+                        <a href="#">FAQs</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="{% url 'index' %}">Home</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'destinations' %}">Destinations</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'trekking' %}">Adventure&Activities</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'Services' %}">Services</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lower-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="social-links text-center text-md-start">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4 text-center text-md-end">
+                <div class="copyright">© 2025 Glidego. All Rights Reserved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- End pagewrapper -->
+    <script src="{% static 'app1/js/jquery.js' %}"></script>
+<script src="{% static 'app1/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app1/js/wow.js' %}"></script>
+    
+    
+    <script src="{% static 'app1/js/jquery-ui.js' %}"></script>
+   
+    <!-- jQuery (Required for Owl Carousel) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap Bundle (optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+   
+    <script>
+    $(document).ready(function () {
+      function initOwlCarousel() {
+        $(".popular-carousel").owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true, // Enable next/prev arrows
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: { items: 1 }, // 1 item for mobile
+            600: { items: 2 }, // 2 items for tablets
+            1000: { items: 3 } // 3 items for desktop
+          }
+        });
+      }
+    
+      // Wait until elements are loaded
+      setTimeout(function () {
+        if ($(".popular-carousel .adventure-card").length > 0) {
+          initOwlCarousel();
+        } else {
+          console.warn("No activities found. Owl Carousel not initialized.");
+        }
+      }, 500); // Delay to wait for data
+    });
+  </script>    
+
+    <script>
+      $(document).ready(function () {
+        $('.testi-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: {
+              items: 1
+            },
+            768: {
+              items: 2 // 2 items on tablet
+            },
+            1200: {
+              items: 3 // 3 items on desktop
+            }
+          }
+        })
+      })
+    </script>
+    
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="authModalLabel">Login / Signup</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Tabs for Switching -->
+                  <ul class="nav nav-pills nav-justified mb-3" id="authTabs">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="login-tab" data-bs-toggle="pill" href="#loginForm">Login</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="signup-tab" data-bs-toggle="pill" href="#signupForm">Signup</a>
+                      </li>
+                  </ul>
+    
+                  <!-- Login Form -->
+                  <div class="tab-content">
+                      <div class="tab-pane fade show active" id="loginForm">
+                          <form method="POST" action="{% url 'login' %}">
+                              {% csrf_token %}
+                              <div class="mb-3">
+                                  <label class="form-label">Email ID</label>
+                                  <input type="email" name="email" class="form-control" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Password</label>
+                                  <input type="password" name="password" class="form-control" required>
+                              </div>
+                              <button type="submit" class="btn btn-success w-100">Login</button>
+                          </form>
+                      </div>
+    
+                      <!-- Signup Form -->
+                      <div class="tab-pane fade" id="signupForm">
+                          <form method="POST" action="{% url 'signup' %}">
+                              {% csrf_token %}
+                              <div class="mb-3">
+                                  <label class="form-label">First Name</label>
+                                  <input type="text" name="first_name" class="form-control" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Last Name</label>
+                                  <input type="text" name="last_name" class="form-control" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Email ID</label>
+                                  <input type="email" name="email" class="form-control" required>
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Location</label>
+                                <input type="text" name="location" class="form-control" required>
+                            </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Password</label>
+                                  <input type="password" name="password" class="form-control" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Confirm Password</label>
+                                  <input type="password" name="password_confirm" class="form-control" required>
+                              </div>
+                              <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                          </form>
+                      </div>
+                  </div>
+    
+              </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

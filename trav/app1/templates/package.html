@@ -1,0 +1,1245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glidego - {{ destination.name }} - Details</title></title>
+    <!-- Stylesheets -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link href="{% static 'app1/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="{% static 'app1/css/responsive.css' %}" rel="stylesheet" />
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif] -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+       /* Improved Card Styles */
+.card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Image Fit */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .card .col-md-5 {
+        text-align: center;
+    }
+    .card img {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <div class="search-backdrop"></div>
+
+      <!-- Main Header -->
+      <header class="main-header header-style-two">
+        <div class="header-upper">
+          <div class="container">
+            <div class="d-flex align-items-center">
+              <div class="logo-box me-auto">
+                <div class="logo">
+                  <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="Glidego" class="glidego-logo" /></a>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-lg ms-auto">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="bi bi-list"></i></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav navigation">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'trekking' %}">Adventure & Activities</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'booking' %}">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'about_us' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                  </ul>
+                  {% comment %} <form class="search-form d-flex ms-3" role="search" method="GET" action="#">
+                    <input class="search-bar form-control" type="search" placeholder="Search..." aria-label="Search" name="q"> {% endcomment %}
+                    {% comment %} <button class="search-btn btn btn-outline-success ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button> {% endcomment %}
+                {% comment %} </form> {% endcomment %}
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="hidden-bar" style="display: none;">
+        <div class="hidden-bar-wrapper">
+          <div class="hidden-bar-closer">
+            <span class="icon">
+              <svg class="icon-close" role="presentation" viewBox="0 0 16 14">
+                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="nav-logo-box">
+            <div class="logo">
+              <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="Treker" /></a>
+            </div>
+          </div>
+          <div class="side-menu">
+            <ul class="navigation clearfix">
+              <li class="current dropdown">
+                <a href="{% url 'index' %}">Home</a>
+              </li>
+              <li>
+                <a href="{% url 'destinations' %}">Destinations</a>
+              </li>
+              <li>
+                <a href="{% url 'trekking' %}">Adventure & Activities</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'Services' %}">Services</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'booking' %}">Booking</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'about_us' %}">About</a>
+              </li>
+              <li>
+                <a href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </section>
+      <!-- Banner Section -->
+      <section class="banner-section">
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="{% static 'app1/images/background/back_video2.mp4' %}" type="video/mp4" />Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="banner-container">
+          <div class="banner-slider-box">
+            <!-- Slide Item -->
+            <div class="slide-item">
+              <div class="content-box">
+                <div class="inner">
+                  {% comment %} <h2>Never Stop Exploring</h2> {% endcomment %}
+                  {% comment %} <h2><span>Exploring</span></h2> {% endcomment %}
+                  {% comment %} <div class="text">Their house is a museum where people come to see ‘em. They really are a scream the Addams Family. These days are all Happy and Free. These days are all share them with me oh baby.</div> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- End Banner Section -->
+
+      <!-- About Us Section -->
+
+      {% comment %} <section class="about-us">
+        <div class="about-content">
+          <div class="title-box">
+            <div class="subtitle">About Glidego</div>
+            <h2><i class="bg-vector"></i><span>World Best Travel Agency</span></h2>
+            <div class="text1">
+              Since 2014, we’ve helped more than 500,000 people of all ages<br /> enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Why Section -->
+
+      {% comment %} <section class="services-section">
+        <div class="auto-container">
+          <div class="title-box centered">
+            <h2>Services</h2>
+          </div>
+          <div class="row justify-content-center">
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-1.svg' %}" alt="Affordable Hotel" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Affordable Hotel</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-2.svg' %}" alt="Food & Drinks" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Food & Drinks</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-3.svg' %}" alt="Safety Guide" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Safety Guide</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-4.svg' %}" alt="Adventures" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Adventures</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-5.svg' %}" alt="Around The World" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Around The World</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+            <div class="service-block col-lg-4 col-md-4 col-sm-12">
+              <div class="inner-box card"> {% endcomment %}
+                {% comment %} <div class="icon-box">
+                  <img src="{% static 'app1/images/resource/icon-6.svg' %}" alt="Fastest Travel" />
+                </div> {% endcomment %}
+                {% comment %} <h4>Fastest Travel</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Trending Destinations Section -->
+
+      <section class="packages">
+        <div class="container mt-4">
+            <h2 class="text-center mb-4 fw-bold">Explore Travel Packages</h2>
+        
+            {% if packages %}
+                <div class="row">
+                    {% for package in packages %}
+                        <div class="col-lg-6 col-md-12 mb-4">
+                            <div class="card shadow-lg rounded border-0 overflow-hidden">
+                                <div class="row g-0">
+                                    <!-- Left Side: Image -->
+                                    <div class="col-md-5 position-relative">
+                                        <img src="{{ package.image.url }}" class="img-fluid w-100 h-100 object-fit-cover rounded-start" alt="{{ package.destination }}">
+                                        <span class="badge bg-warning text-dark position-absolute p-2" style="top: 10px; left: 10px;">
+                                            {{ package.duration }} Days
+                                        </span>
+                                    </div>
+        
+                                    <!-- Right Side: Details -->
+                                    <div class="col-md-7">
+                                        <div class="card-body">
+                                            <h4 class="card-title fw-bold">
+                                                {{ package.destination }}  
+                                                <span class="text-warning">★★★★★</span>
+                                            </h4>
+                                            <p class="text-muted"><i class="fas fa-map-marker-alt"></i> {{ package.location }}</p>
+                                            <p><strong><i class="fas fa-info-circle"></i> Description:</strong> {{ package.description }}</p>
+                                            <p><strong><i class="fas fa-dumbbell"></i> Activities:</strong> {{ package.activities }}</p>
+                                            <p><strong><i class="fas fa-dollar-sign"></i> Price:</strong> ₹{{ package.price }}</p>
+        
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="#" class="btn btn-primary btn-sm">Book Now</a>
+                                                <button class="btn btn-outline-secondary btn-sm">Email Quotes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-center text-muted">No packages found matching your criteria.</p>
+            {% endif %}
+        </div>
+    </section>
+
+      <!-- Adventure and Activities -->
+
+      {% comment %} <section class="popular-section">
+        <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/back1.jpg' %}');"></div>
+        <div class="auto-container">
+          <div class="title-box centered">
+            <div class="subtitle">Modern & Beautiful</div>
+            <h2><i class="bg-vector"></i><span>Our Most Popular Activities</span></h2>
+          </div>
+          <div class="carousel-box">
+            <div class="popular-carousel owl-theme owl-carousel"> {% endcomment %}
+              <!-- Adventure Card Block 1 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek1.jpg' %}" style="width: 310px; height: 291px;" alt="Moscow Red City Land" /></a>
+                  <div class="price">
+                    <span>$120</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Moscow Red City Land</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 5 days</span> |
+                    <span>259P, Himalaya Ag</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i>
+                    <a href="#">05 Review</a>
+                  </div>
+                  <p class="text">Richly varied landscapes, luxurious accommodation, and a wide range of wild experiences await you.</p>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 2 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek2.jpg' %}" style="width: 310px; height: 291px;" alt="Yellowstone & Mt Rushmore" /></a>
+                  <div class="price">
+                    <span>$120</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Yellowstone & Mt Rushmore</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 5 days</span> |
+                    <span>259P, Himalaya Ag</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i>
+                    <a href="#">05 Review</a>
+                  </div>
+                  <p class="text">Richly varied landscapes, luxurious accommodation, and a wide range of wild experiences await you.</p>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 3 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek3.jpg' %}" style="width: 310px; height: 291px;" alt="Andean Treks" /></a>
+                  <div class="price">
+                    <span>$150</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Andean Treks</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 6 days</span> |
+                    <span>200P, Andes</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+                    <a href="#">06 Review</a>
+                  </div>
+                  <p class="text">Experience breathtaking landscapes and immerse yourself in the Andean culture.</p>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 4 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek4.jpg' %}" style="width: 310px; height: 291px;" alt="Rocky Mountain Adventure" /></a>
+                  <div class="price">
+                    <span>$180</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Rocky Mountain Adventure</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 7 days</span> |
+                    <span>300P, Rockies</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <a href="#">10 Review</a>
+                  </div>
+                  <p class="text">Trek through majestic mountains and enjoy breathtaking views at every turn.</p>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Adventure Card Block 5 -->
+              {% comment %} <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek3.jpg' %}" style="width: 310px; height: 291px;" alt="Safari Expedition" /></a>
+                  <div class="price">
+                    <span>$200</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Safari Expedition</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 4 days</span> |
+                    <span>150P, Africa</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i>
+                    <a href="#">08 Review</a>
+                  </div>
+                  <p class="text">Embark on a thrilling safari adventure, encountering wild animals.</p>
+                </div>
+              </div>
+
+              <!-- Adventure Card Block 6 -->
+              <div class="adventure-card">
+                <div class="image-box">
+                  <a href="{% url 'packages' %}"><img src="{% static 'app1/images/resource/trek/trek1.jpg' %}" style="width: 310px; height: 291px;" alt="Tropical Paradise" /></a>
+                  <div class="price">
+                    <span>$250</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><a href="{% url 'packages' %}">Tropical Paradise</a></h4>
+                  <div class="info">
+                    <span><i class="icon far fa-clock"></i> 5 days</span> |
+                    <span>100P, Islands</span>
+                  </div>
+                  <div class="ratings">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i>
+                    <a href="#">07 Review</a>
+                  </div>
+                  <p class="text">Relax in a stunning tropical paradise with pristine beaches and crystal waters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+      <!-- Group Travel Section -->
+      {% comment %} <section class="group-travel">
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/resource/index/image2.jpg' %}); width: 1910px; height:615px;"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <div class="row clearfix">
+              <!-- Block -->
+              <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                  <div class="title">
+                    <h4>Group Travel to Himalay</h4>
+                  </div>
+                  <div class="content">
+                    <div class="info">
+                      <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                    </div>
+                    <div class="price">
+                      <span>$235.00</span>
+                    </div>
+                    <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
+                    <div class="link-box">
+                      <a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="images/icons/logo-icon.svg" alt="" title="" /></i></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="travel-block-one alternate col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                  <div class="title">
+                    <h4>Adventure in the Alps</h4>
+                  </div>
+                  <div class="content">
+                    <div class="info">
+                      <span class="i-block"><i class="icon far fa-clock"></i>7 days</span> &ensp; | &ensp; <span class="i-block">358P, Alps Region</span>
+                    </div>
+                    <div class="price">
+                      <span>$450.00</span>
+                    </div>
+                    <div class="text">Experience breathtaking views, cozy lodges, and thrilling outdoor activities in the Alps.</div>
+                    <div class="link-box">
+                      <a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="images/icons/logo-icon.svg" alt="" title="" /></i></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Testimonials Section -->
+      {% comment %} <section class="testimonials-one">
+        <div class="bg-layer" style="background-image: url('{% static 'app1/images/background/index/image2.jpg' %}') width:100%; height:100% ;"></div>
+        <div class="auto-container">
+          <div class="title-box centered">
+            <div class="subtitle">Review & Testimonial</div>
+            <h2><i class="bg-vector"></i><span>Top Reviews for Glidego</span></h2>
+          </div>
+          <div class="carousel-box">
+            <div class="testi-carousel owl-theme owl-carousel"> {% endcomment %}
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-1.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most Fight School has specialized.</div>
+                  <div class="info">
+                    <div class="name">Randall Schwartz</div>
+                    <div class="clearfix">
+                      <div class="designation">Women's Trainner</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-2.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">We teach martial arts because we love it — not because we want to make money on you. Unlike other martial.</div>
+                  <div class="info">
+                    <div class="name">Andru Smith</div>
+                    <div class="clearfix">
+                      <div class="designation">Boxing Trainer</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block alternate">
+                <div class="inner-box">
+                  <div class="image-layer" style="background-image: url('{% static 'app1/images/background/testi-image-1.jpg' %}'); width: 94px; height: 132px; "></div>
+                  <div class="over-box">
+                    <div class="over-title">
+                      <a href="#">MASTER TREKER TRAVEL</a>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-1.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most Fight School has specialized.</div>
+                  <div class="info">
+                    <div class="name">Randall Schwartz</div>
+                    <div class="clearfix">
+                      <div class="designation">Women's Trainner</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-2.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">We teach martial arts because we love it — not because we want to make money on you. Unlike other martial.</div>
+                  <div class="info">
+                    <div class="name">Andru Smith</div>
+                    <div class="clearfix">
+                      <div class="designation">Boxing Trainer</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-2.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">We teach martial arts because we love it — not because we want to make money on you. Unlike other martial.</div>
+                  <div class="info">
+                    <div class="name">Andru Smith</div>
+                    <div class="clearfix">
+                      <div class="designation">Boxing Trainer</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block">
+                <div class="inner-box"> {% endcomment %}
+                  {% comment %} <div class="icon">
+                    <img src="{% static 'app1/images/icons/quotes-1.svg' %}" alt="" />
+                  </div> {% endcomment %}
+                  {% comment %} <div class="image">
+                    <img src="{% static 'app1/images/resource/testi-thumb-2.jpg' %}" alt="" style="width: 94px; height: 132px;" />
+                  </div>
+                  <div class="text">We teach martial arts because we love it — not because we want to make money on you. Unlike other martial.</div>
+                  <div class="info">
+                    <div class="name">Andru Smith</div>
+                    <div class="clearfix">
+                      <div class="designation">Boxing Trainer</div>
+                      <div class="rating">
+                        <div class="stars">
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              <!-- Testi Block -->
+              {% comment %} <div class="testi-block alternate">
+                <div class="inner-box">
+                  <div class="image-layer" style="background-image: url('{% static 'app1/images/background/testi-image-1.jpg' %}''); width: 370px; height:329px;"></div>
+                  <div class="over-box">
+                    <div class="over-title">
+                      <a href="#">MASTER GLIDEGO TRAVEL</a>
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+            {% comment %} </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      {% comment %} <script>  
+        $(document).ready(function(){  
+            $(".testi-carousel").owlCarousel({  
+                items: 1,  
+                loop: true,  
+                autoplay: true,  
+                autoplayTimeout: 3000,  
+                nav: true,  
+                dots: true  
+            });  
+        });  
+    </script> {% endcomment %}
+      <!-- Sponsors Section -->
+      {% comment %} <section class="sponsors-one">
+        <div class="auto-container">
+          <div class="carousel-box">
+            <div class="sponsors-carousel owl-theme owl-carousel">
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-1.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-2.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-3.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-4.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-1.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-2.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-3.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="sponsor-block">
+                <div class="inner-box">
+                  <div class="image">
+                    <a href="#"><img src="{% static 'app1/images/resource/sponsor-4.png' %}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- News Section -->
+      {% comment %} <section class="news-section">
+        <div class="floated-icon left">
+          <img src="{% static 'app1/images/resource/stones-left.svg' %}" alt="" title="" />
+        </div>
+        <div class="floated-icon right">
+          <img src="{% static 'app1/images/resource/stones-right.svg' %}" alt="" title="" />
+        </div>
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/background/image-1.jpg' %})"></div>
+        <div class="auto-container">
+          <div class="title-box centered">
+            <div class="subtitle">Glidego Top News</div>
+            <h2><i class="bg-vector"></i><span>Glidego Latest News</span></h2>
+          </div>
+          <div class="content-box">
+            <div class="row clearfix">
+              <!-- Block -->
+              <div class="news-block-one col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="image-box">
+                    <div class="image">
+                      <a href="blog-single.html"><img src="{% static 'app1/images/resource/news/news1.jpg' %}" style="width:370px ; height: 274px;" alt="" title="" /></a>
+                    </div>
+                    <div class="cat">
+                      <span>Trekking</span>
+                    </div>
+                  </div>
+                  <div class="lower-content">
+                    <div class="info">
+                      <span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+                    </div>
+                    <h4><a href="blog-single.html">THE UPCOMING WBC CHAMP SHIPS 2022 in feb</a></h4>
+                    <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="news-block-one alternate col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="lower-content">
+                    <div class="info">
+                      <span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+                    </div>
+                    <h4><a href="blog-single.html">THE BEST BOXERS IN THEIR WEIGH Target CATEGOR</a></h4>
+                    <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative.</div>
+                  </div>
+                  <div class="image-box">
+                    <div class="image">
+                      <a href="blog-single.html"><img src="{% static 'app1/images/resource/news/news2.jpg' %}" style="width: 370px; height: 274px;" alt="" title="" /></a>
+                    </div>
+                    <div class="cat">
+                      <span>Trekking</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block -->
+              <div class="news-block-one col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="image-box">
+                    <div class="image">
+                      <a href="blog-single.html"><img src="{% static 'app1/images/resource/news/news3.jpg' %}" style="width:370px; height: 274px;" alt="" title="" /></a>
+                    </div>
+                    <div class="cat">
+                      <span>Trekking</span>
+                    </div>
+                  </div>
+                  <div class="lower-content">
+                    <div class="info">
+                      <span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+                    </div>
+                    <h4><a href="blog-single.html">EFFECTIVE STRATEGIES & TIPS FROM THE BEST</a></h4>
+                    <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Subscribe Section -->
+      {% comment %} <section class="subscribe-section">
+        <div class="auto-container">
+          <div class="content-box">
+            <div class="bg-layer" style="background-image: url({% static 'app1/images/background/index/image2.jpg' %})"></div>
+            <div class="row clearfix">
+              <div class="image-col col-xl-5 col-lg-6 col-md-12 col-sm-12">
+                <div class="inner">
+                  <div class="image">
+                    <img src="{% static 'app1/images/resource/newsletter-image.svg' %}" alt="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-col col-xl-7 col-lg-6 col-md-12 col-sm-12">
+                <div class="inner">
+                  <div class="title">
+                    <div class="subtitle">Newsletter</div>
+                    <h2>SUBSCRIBE NOW</h2>
+                    <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative programs in the nation.</div>
+                  </div>
+                  <div class="form-box subscribe-form">
+                    <form method="post" action="index.html">
+                      <div class="form-group">
+                        <div class="field-inner">
+                          <span class="icon alt-icon far fa-envelope"></span>
+                          <input type="email" name="email" value="" placeholder="Email Address" />
+                        </div>
+                        <button type="submit" class="theme-btn btn-style-one"><span>SUBSCRIBE <i class="icon fa fa-paper-plane"></i></span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+      <!-- Main Footer -->
+      {% comment %} <footer class="main-footer">
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/background/back3.jpg' %})"></div>
+        <div class="info-section">
+          <div class="auto-container">
+            <div class="row clearfix">
+              <div class="footer-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                <!-- Logo -->
+                <div class="footer-logo">
+                  <div class="logo">
+                    <a href="{% url 'index' %}" title="Treker"><img src="{% static 'app1/images/logo2.png' %}" alt="" title="Treker" /></a>
+                  </div>
+                </div>
+                <div class="footer-text">Treker was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</div>
+              </div>
+
+              <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                  <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                    <h6>EUROPE</h6>
+                    <div class="info">
+                      <ul>
+                        <li>Europe 45 Gloucester Road London DT1M 3BF</li>
+                        <li>
+                          <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                    <h6>ASIA & PACIFIC</h6>
+                    <div class="info">
+                      <ul>
+                        <li>2473 Red Road Ste 98 Singapore SG</li>
+                        <li>
+                          <a href="tel:+16232116319">+ 1 623 211 6319</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="info-block col-lg-4 col-md-4 col-sm-12">
+                    <h6>NORTH AMERICA</h6>
+                    <div class="info">
+                      <ul>
+                        <li>Europe 45 Gloucester Road London DT1M 3BF</li>
+                        <li>
+                          <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-section">
+          <div class="auto-container">
+            <div class="content-box">
+              <div class="row clearfix">
+                <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                  <div class="row clearfix">
+                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                      <h6>About us</h6>
+                      <div class="links">
+                        <ul>
+                          <li>
+                            <a href="#">About Us</a>
+                          </li>
+                          <li>
+                            <a href="#">Community Blog</a>
+                          </li>
+                          <li>
+                            <a href="#">Rewards</a>
+                          </li>
+                          <li>
+                            <a href="#">Work with Us</a>
+                          </li>
+                          <li>
+                            <a href="#">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                      <h6>Exlopre Glidego</h6>
+                      <div class="links">
+                        <ul>
+                          <li>
+                            <a href="#">Account</a>
+                          </li>
+                          <li>
+                            <a href="#">Privacy Policy</a>
+                          </li>
+                          <li>
+                            <a href="#">Affilitate</a>
+                          </li>
+                          <li>
+                            <a href="#">Program</a>
+                          </li>
+                          <li>
+                            <a href="#">Our Partner</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="footer-column col-lg-4 col-md-4 col-sm-12">
+                      <h6>Quick lInks</h6>
+                      <div class="links">
+                        <ul>
+                          <li>
+                            <a href="#">About us</a>
+                          </li>
+                          <li>
+                            <a href="#">News & press</a>
+                          </li>
+                          <li>
+                            <a href="#">Blog</a>
+                          </li>
+                          <li>
+                            <a href="#">FAQs</a>
+                          </li>
+                          <li>
+                            <a href="#">Careers</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="footer-column col-xl-4 col-lg-6 col-md-8 col-sm-12">
+                  <h6>Gallery</h6>
+                  <!-- Logo -->
+                  <div class="footer-gallery">
+                    <div class="inner clearfix">
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga1.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga1.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga2.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga2.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga3.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga3.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga4.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga4.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga5.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga5.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                      <div class="image-block">
+                        <div class="image">
+                          <a href="{% static 'app1/images/resource/gallery/ga6.jpg' %}" class="lightbox-image"><img src="{% static 'app1/images/resource/gallery/ga6.jpg' %}" style="width: 105px; height: 94px;" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-bottom">
+          <div class="auto-container">
+            <div class="inner clearfix">
+              <div class="social-links">
+                <ul class="clearfix">
+                  <li>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="copyright">Copyright &copy; 2022 Glidego. All Rights Reserved. Designed by ThemeIM</div>
+            </div>
+          </div>
+        </div>
+      </footer> {% endcomment %}
+      <footer class="main-footer">  
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/background/back3.jpg' %});"></div>  
+        <div class="info-section">  
+            <div class="container">  
+                <div class="row align-items-center">  
+                    <div class="col-lg-4 col-md-12 text-center text-lg-start">  
+                        <div class="footer-logo">  
+                            <a href="{% url 'index' %}" title="Treker">  
+                                <img src="{% static 'app1/images/logo2.png' %}" alt="Treker" class="glidego-logo" />  
+                            </a>  
+                        </div>  
+                        <p class="footer-text">Glidego was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</p>  
+                    </div>  
+                    <div class="col-lg-8 col-md-12 text-center text-lg-end">  
+                        <div class="row">  
+                            <div class="col-md-4">  
+                                <h6>About Us</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="#">About Us</a></li>  
+                                    <li><a href="#">Community Blog</a></li>  
+                                    {% comment %} <li><a href="#">Rewards</a></li>   {% endcomment %}
+                                    <li><a href="#">Work with Us</a></li>  
+                                    <li><a href="#">Contact</a></li>  
+                                </ul>  
+                            </div>  
+                            <div class="col-md-4">  
+                                <h6>Explore Glidego</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="#">Account</a></li>  
+                                    <li><a href="#">Privacy Policy</a></li>  
+                                    {% comment %} <li><a href="#">Affiliate Program</a></li>   {% endcomment %}
+                                    {% comment %} <li><a href="#">Our Partners</a></li>   {% endcomment %}
+                                    <li><a href="#">FAQs</a></li>  
+                                </ul>  
+                            </div>  
+                            <div class="col-md-4">  
+                                <h6>Quick Links</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="{% url 'index' %}">Home</a></li>  
+                                    <li><a href="{%url 'destinations' %}">Destinations</a></li>  
+                                    <li><a href="{% url 'trekking' %}">Adventure&Activities</a></li>  
+                                    <li><a href="{% url 'Services'%}">Services</a></li>  
+                                </ul>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    
+        <div class="lower-section">  
+            <div class="container">  
+                <div class="row">  
+                    <div class="col-md-8">  
+                        <div class="social-links text-center text-md-start">  
+                            <ul class="list-inline">  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>  
+                            </ul>  
+                        </div>  
+                    </div>  
+                    <div class="col-md-4 text-center text-md-end">  
+                        <div class="copyright">© 2025 Glidego. All Rights Reserved.</div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </footer>
+    </div>
+    <!-- End pagewrapper -->
+
+    <script src="js/jquery.js"></script>
+    {% comment %} <script src="js/popper.min.js"></script> {% endcomment %}
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    {% comment %} <script src="js/jquery.fancybox.js"></script> {% endcomment %}
+    {% comment %} <script src="js/isotope.js"></script> {% endcomment %}
+    {% comment %} <script src="js/touchspin.js"></script> {% endcomment %}
+    {% comment %} <script src="js/owl.js"></script> {% endcomment %}
+    <script src="js/wow.js"></script>
+    {% comment %} <script src="js/custom-script.js"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Include Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    {% comment %} <script>
+      $(document).ready(function () {
+        $('.popular-carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true, // Enable next/prev arrows
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: {
+              items: 1 // 1 item for mobile
+            },
+            600: {
+              items: 2 // 2 items for tablets
+            },
+            1000: {
+              items: 3 // 3 items for desktop
+            }
+          }
+        })
+      })
+    </script> {% endcomment %}
+    <!-- Include jQuery and Owl Carousel scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    {% comment %} <script>
+      $(document).ready(function () {
+        $('.testi-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: {
+              items: 1
+            },
+            768: {
+              items: 2 // 2 items on tablet
+            },
+            1200: {
+              items: 3 // 3 items on desktop
+            }
+          }
+        })
+      })
+    </script> {% endcomment %}
+  </body>
+</html>

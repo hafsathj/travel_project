@@ -1,0 +1,492 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glidego - {{ destination.name }} - Details</title></title>
+    <!-- Stylesheets -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link href="{% static 'app1/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'app1/images/favicon.png' %}" type="image/x-icon" />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="{% static 'app1/css/responsive.css' %}" rel="stylesheet" />
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif] -->
+    <style>
+      /* Destination Detail Section */
+      .destination-detail {
+          max-width: 900px;
+          margin: auto;
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+      }
+  
+      .destination-detail img {
+          width: 100%;
+          max-height: 400px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 15px;
+      }
+  
+      .destination-detail h1 {
+          font-size: 28px;
+          color: #146c43;
+          margin-bottom: 10px;
+      }
+  
+      .destination-detail p {
+          font-size: 16px;
+          color: #555;
+          margin: 5px 0;
+      }
+  
+      .destination-detail strong {
+          color: #333;
+      }
+  
+      .btn-primary, .btn-success, .btn-secondary {
+          display: inline-block;
+          margin-top: 10px;
+          padding: 8px 14px;
+          font-size: 14px;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: 0.3s;
+      }
+  
+      .btn-primary { background: #0d6efd; color: white; }
+      .btn-success { background: #198754; color: white; }
+      .btn-secondary { background: #6c757d; color: white; }
+  
+      .btn-primary:hover { background: #0b5ed7; }
+      .btn-success:hover { background: #146c43; }
+      .btn-secondary:hover { background: #5a6268; }
+  
+      /* Similar Destinations */
+      .similar-destinations h2 {
+          margin-top: 30px;
+          color: #146c43;
+      }
+  
+      .card-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 15px;
+      }
+  
+      .card {
+          width: 250px;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+          padding: 15px;
+          text-align: center;
+          transition: transform 0.3s;
+      }
+  
+      .card:hover {
+          transform: translateY(-5px);
+      }
+  
+      .card img {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 8px;
+      }
+  
+      .card h3 {
+          font-size: 18px;
+          margin: 10px 0 5px;
+      }
+  
+      /* Activities */
+      .activity-list {
+          list-style: none;
+          padding: 0;
+          text-align: left;
+          margin-top: 10px;
+      }
+  
+      .activity-list li {
+          background: #f8f9fa;
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 5px;
+      }
+  
+      @media (max-width: 768px) {
+          .card-container {
+              flex-direction: column;
+              align-items: center;
+          }
+      }
+  </style>
+  </head>
+
+  <body>
+    {% comment %} <div class="page-wrapper">
+      <div class="search-backdrop"></div> {% endcomment %}
+
+      <!-- Main Header -->
+      {% comment %} <header class="main-header header-style-two">
+        <div class="header-upper">
+          <div class="container">
+            <div class="d-flex align-items-center">
+              <div class="logo-box me-auto">
+                <div class="logo">
+                  <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="Glidego" class="glidego-logo" /></a>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-lg ms-auto">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="bi bi-list"></i></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav navigation">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'trekking' %}">Adventure & Activities</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'booking' %}">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'about_us' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                  </ul> {% endcomment %}
+                  {% comment %} <form class="search-form d-flex ms-3" role="search" method="GET" action="#">
+                    <input class="search-bar form-control" type="search" placeholder="Search..." aria-label="Search" name="q"> {% endcomment %}
+                    {% comment %} <button class="search-btn btn btn-outline-success ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button> {% endcomment %}
+                {% comment %} </form> {% endcomment %}
+                {% comment %} </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="hidden-bar" style="display: none;">
+        <div class="hidden-bar-wrapper">
+          <div class="hidden-bar-closer">
+            <span class="icon">
+              <svg class="icon-close" role="presentation" viewBox="0 0 16 14">
+                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="nav-logo-box">
+            <div class="logo">
+              <a href="{% url 'index' %}" title="Glidego"><img src="{% static 'app1/images/logo2.png' %}" alt="Treker" /></a>
+            </div>
+          </div>
+          <div class="side-menu">
+            <ul class="navigation clearfix">
+              <li class="current dropdown">
+                <a href="{% url 'index' %}">Home</a>
+              </li>
+              <li>
+                <a href="{% url 'destinations' %}">Destinations</a>
+              </li>
+              <li>
+                <a href="{% url 'trekking' %}">Adventure & Activities</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'Services' %}">Services</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'booking' %}">Booking</a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'about_us' %}">About</a>
+              </li>
+              <li>
+                <a href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </section> {% endcomment %}
+      <!-- Banner Section -->
+      {% comment %} <section class="banner-section">
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="{% static 'app1/images/background/back_video2.mp4' %}" type="video/mp4" />Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="banner-container">
+          <div class="banner-slider-box"> {% endcomment %}
+            <!-- Slide Item -->
+            {% comment %} <div class="slide-item">
+              <div class="content-box">
+                <div class="inner"> {% endcomment %}
+                  {% comment %} <h2>Never Stop Exploring</h2> {% endcomment %}
+                  {% comment %} <h2><span>Exploring</span></h2> {% endcomment %}
+                  {% comment %} <div class="text">Their house is a museum where people come to see ‘em. They really are a scream the Addams Family. These days are all Happy and Free. These days are all share them with me oh baby.</div> {% endcomment %}
+                {% comment %} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> {% endcomment %}
+
+     
+
+      {% comment %} <section class="destination-details">
+        <div class="container">
+            <h1 class="destination-title">{{ destination.name }}</h1> <!-- Title with Destination Name -->
+
+            <!-- Image Section -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="{{ destination.image.url }}" class="img-fluid destination-image" 
+                         alt="{{ destination.name }}">
+                </div>
+            </div>
+
+            <!-- Destination Details -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="destination-card">
+                        <h3>Details</h3>
+                        <p><strong>Category:</strong> {{ destination.tags }}</p>
+                        <p><strong>Location:</strong> {{ destination.location }}</p>
+                        <p><strong>Description:</strong> {{ destination.description }}</p>
+                        <p><strong>Price:</strong> ₹{{ destination.price }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="destination-card">
+                        <h3>Actions</h3>
+                        <a href="#" class="btn btn-primary details-btn">View on Map</a>
+                        <a href="{% url 'index' %}" class="btn btn-secondary details-btn">Back to Destinations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  {% endcomment %}
+    <!-- Destination Detail Section -->
+<div class="destination-detail">
+  <h1>{{ destination.name }}</h1>
+  <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+  <p><strong>Category:</strong> {{ destination.category }}</p>
+  <p><strong>Description:</strong> {{ destination.description }}</p>
+  <p><strong>Location:</strong> {{ destination.location }}</p>
+  <p><strong>Price:</strong> {{ destination.formatted_price }}</p>
+
+  {% if destination.map_link %}
+      <a href="{{ destination.map_link }}" class="btn btn-success" style="background-color: darkgreen;" target="_blank">View on Map</a>
+  {% endif %}
+  <h2>Nearby Destinations (Within 50km)</h2>
+  <ul>
+      {% for place in nearby_destinations %}
+          <li>
+              <strong>{{ place.name }}</strong> - {{ place.category }} ({{ place.distance }} km away)
+          </li>
+      {% empty %}
+          <li>No nearby destinations found.</li>
+      {% endfor %}
+  </ul>
+  
+  <!-- Similar Destinations Section -->
+  <div class="similar-destinations">
+      <h2>Similar Destinations</h2>
+      <div class="card-container">
+          {% for dest in recommended_destinations %}
+          <div class="card">
+              <img src="{{ dest.image.url }}" alt="{{ dest.name }}">
+              <h3>{{ dest.name }}</h3>
+              <p><strong>{{ dest.category }}</strong></p>
+              <a href="{% url 'destination_detail' dest.id %}" class="btn btn-success">DETAILS</a>
+          </div>
+          {% empty %}
+          <p>No similar destinations available.</p>
+          {% endfor %}
+      </div>
+  </div>
+
+  <!-- Activities Section -->
+  <h2>Activities at {{ destination.name }}</h2>
+  <ul class="activity-list">
+      {% for activity in recommended_activities %}
+          <li>
+              {{ activity.name }} • {{ activity.category }} • ${{ activity.price }}
+          </li>
+      {% empty %}
+          <li>No activities available.</li>
+      {% endfor %}
+  </ul>
+
+  <a href="{% url 'destination_list' %}" class="btn btn-secondary">Back to Destinations</a>
+</div>
+
+     
+      <footer class="main-footer">  
+        <div class="bg-layer" style="background-image: url({% static 'app1/images/background/back3.jpg' %});"></div>  
+        <div class="info-section">  
+            <div class="container">  
+                <div class="row align-items-center">  
+                    <div class="col-lg-4 col-md-12 text-center text-lg-start">  
+                        <div class="footer-logo">  
+                            <a href="{% url 'index' %}" title="Treker">  
+                                <img src="{% static 'app1/images/logo2.png' %}" alt="Treker" class="glidego-logo" />  
+                            </a>  
+                        </div>  
+                        <p class="footer-text">Glidego was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</p>  
+                    </div>  
+                    <div class="col-lg-8 col-md-12 text-center text-lg-end">  
+                        <div class="row">  
+                            <div class="col-md-4">  
+                                <h6>About Us</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="#">About Us</a></li>  
+                                    <li><a href="#">Community Blog</a></li>  
+                                    {% comment %} <li><a href="#">Rewards</a></li>   {% endcomment %}
+                                    <li><a href="#">Work with Us</a></li>  
+                                    <li><a href="#">Contact</a></li>  
+                                </ul>  
+                            </div>  
+                            <div class="col-md-4">  
+                                <h6>Explore Glidego</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="#">Account</a></li>  
+                                    <li><a href="#">Privacy Policy</a></li>  
+                                    {% comment %} <li><a href="#">Affiliate Program</a></li>   {% endcomment %}
+                                    {% comment %} <li><a href="#">Our Partners</a></li>   {% endcomment %}
+                                    <li><a href="#">FAQs</a></li>  
+                                </ul>  
+                            </div>  
+                            <div class="col-md-4">  
+                                <h6>Quick Links</h6>  
+                                <ul class="list-unstyled">  
+                                    <li><a href="{% url 'index' %}">Home</a></li>  
+                                    <li><a href="{%url 'destinations' %}">Destinations</a></li>  
+                                    <li><a href="{% url 'trekking' %}">Adventure&Activities</a></li>  
+                                    <li><a href="{% url 'Services'%}">Services</a></li>  
+                                </ul>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    
+        <div class="lower-section">  
+            <div class="container">  
+                <div class="row">  
+                    <div class="col-md-8">  
+                        <div class="social-links text-center text-md-start">  
+                            <ul class="list-inline">  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>  
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>  
+                            </ul>  
+                        </div>  
+                    </div>  
+                    <div class="col-md-4 text-center text-md-end">  
+                        <div class="copyright">© 2025 Glidego. All Rights Reserved.</div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </footer>
+    </div>
+    <!-- End pagewrapper -->
+
+    <script src="js/jquery.js"></script>
+    {% comment %} <script src="js/popper.min.js"></script> {% endcomment %}
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    {% comment %} <script src="js/jquery.fancybox.js"></script> {% endcomment %}
+    {% comment %} <script src="js/isotope.js"></script> {% endcomment %}
+    {% comment %} <script src="js/touchspin.js"></script> {% endcomment %}
+    {% comment %} <script src="js/owl.js"></script> {% endcomment %}
+    <script src="js/wow.js"></script>
+    {% comment %} <script src="js/custom-script.js"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Include Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    {% comment %} <script>
+      $(document).ready(function () {
+        $('.popular-carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true, // Enable next/prev arrows
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: {
+              items: 1 // 1 item for mobile
+            },
+            600: {
+              items: 2 // 2 items for tablets
+            },
+            1000: {
+              items: 3 // 3 items for desktop
+            }
+          }
+        })
+      })
+    </script> {% endcomment %}
+    <!-- Include jQuery and Owl Carousel scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    {% comment %} <script>
+      $(document).ready(function () {
+        $('.testi-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          responsive: {
+            0: {
+              items: 1
+            },
+            768: {
+              items: 2 // 2 items on tablet
+            },
+            1200: {
+              items: 3 // 3 items on desktop
+            }
+          }
+        })
+      })
+    </script> {% endcomment %}
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="matching-destinations">
+        <h2>Recommended Destinations</h2>
+        <p>Showing results for:</p>
+        <ul>
+            <li><strong>Category:</strong> {{ category }}</li>
+            <li><strong>Activity Type:</strong> {{ activity_type }}</li>
+        </ul>
+    
+        {% if matching_destinations %}
+            <div class="destination-list">
+                {% for destination in matching_destinations %}
+                    <div class="destination-card">
+                        <img src="{{ destination.image.url }}" alt="{{ destination.name }}" class="destination-image">
+                        <div class="destination-info">
+                            <h3>{{ destination.name }}</h3>
+                            <p>{{ destination.description }}</p>
+                            <p><strong>Location:</strong> {{ destination.location }}</p>
+                            <p><strong>Price:</strong> ${{ destination.price }}</p>
+                            <a href="{% url 'destination_detail' destination.id %}" class="view-details">View Details</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No destinations match your preferences.</p>
+        {% endif %}
+    </section>
+</body>
+</html>

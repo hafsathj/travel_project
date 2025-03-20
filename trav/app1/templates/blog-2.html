@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Treker - Blog Classic</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/jquery.bootstrap-touchspin.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]--> 
+
+</head>
+
+<body>
+  <div class="page-wrapper"> 
+  
+    <!-- Preloader -->
+    <div class="preloader"></div> 
+	
+    <div class="search-backdrop"></div>
+	
+    <!-- Main Header -->
+    <header class="main-header header-style-two">
+        <!-- Header Upper -->
+        <div class="header-upper">        
+            <div class="auto-container">
+                <!-- Main Box -->
+                <div class="main-box clearfix">
+                    <!--Logo-->
+                    <div class="logo-box">
+                         <div class="logo"><a href="index.html" title="Treker"><img src="images/logo.svg" alt="" title="Treker"></a></div>
+                    </div>
+
+                    <div class="nav-box clearfix">
+                        <!--Nav Outer-->
+                        <div class="nav-outer clearfix">         
+                            <nav class="main-menu">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown"><a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home 01</a></li>
+                                            <li><a href="index-2.html">Home 02</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="about.html">About Us</a>
+                                        <ul>
+                                            <li><a href="team.html">Our Team</a></li>
+                                            <li><a href="team-member.html">Team Member</a></li>
+                                            <li><a href="faq.html">FAQs</a></li>
+                                            <li><a href="gallery.html">Gallery</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="shop.html">Shop</a>
+                                        <ul>
+                                            <li><a href="shop.html">Our Shop</a></li>
+                                            <li><a href="product-single.html">Product Details</a></li>
+                                            <li><a href="wishlist.html">My Wishlist</a></li>
+                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="signup.html">Signup</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="reset-password.html">Forgot Password</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="destinations.html">Destinations</a></li>
+                                    <li><a href="trekking.html">Trekking</a></li>
+                                    <li class="dropdown"><a href="#">Pages</a>
+                                        <ul>
+                                            <li><a href="activities.html">Activities</a></li>
+                                            <li><a href="destinations-2.html">Destinations 02</a></li>
+                                            <li><a href="tours.html">Tours</a></li>
+                                            <li><a href="packages.html">Packages 01</a></li>
+                                            <li><a href="packages-2.html">Packages 02</a></li>
+                                            <li><a href="booking.html">Booking</a></li>
+                                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                                            <li><a href="error-page.html">404 Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="current dropdown"><a href="blog.html">News</a>
+                                        <ul>
+                                            <li><a href="blog.html">Our Blog</a></li>
+                                            <li><a href="blog-2.html">Blog Classic</a></li>
+                                            <li><a href="blog-single.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+                        <!--Nav Outer End-->
+
+                        <div class="links-box clearfix">
+                            <div class="link search-btn search-toggle"><span class="icon far fa-search"></span></div>
+                            <div class="link fav-btn"><a href="#"><span class="icon far fa-heart"></span><span class="count">02</span></a></div>
+                            <div class="link cart-btn"><a href="#" class="clearfix"><div class="cart-info"><span class="icon far fa-shopping-cart"></span>00 Items</div></a></div>
+                        </div>
+
+                        <!-- Hidden Nav Toggler -->
+                        <div class="nav-toggler">
+                            <button class="hidden-bar-opener"><span class="icon"><img src="images/icons/menu-icon.svg" alt=""></span></button>
+                        </div>
+
+                    </div>
+
+                    <!-- End Header Upper -->
+                    <div class="search-box">
+                        <div class="outer-container">
+                            <div class="inner-box">
+                                <div class="form-box">
+                                    <div class="s-close-btn"><span class="icon far fa-times"></span></div>
+                                    <span class="s-icon fa fa-search"></span>
+                                    <form method="post" action="index.html">
+                                        <div class="form-group">
+                                            <input type="search" name="search" value="" placeholder="Search Here" required="">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Main Header -->
+
+    <!-- Search Backdrop -->
+    <div class="search-backdrop"></div>
+    
+    <!-- Menu Backdrop -->
+    <div class="menu-backdrop"></div>
+
+    <!-- Hidden Navigation Bar -->
+    <section class="hidden-bar">
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+            <div class="hidden-bar-closer"><span class="icon"><svg class="icon-close" role="presentation" viewBox="0 0 16 14"><path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path></svg></span></div>
+            <div class="nav-logo-box">
+                <div class="logo"><a href="index.html" title="Treker"><img src="images/logo.svg" alt="" title="Treker"></a></div>
+            </div>
+            <!-- .Side-menu -->
+            <div class="side-menu">
+                 <ul class="navigation clearfix">
+                    <li class="dropdown"><a href="index.html">Home</a>
+                        <ul>
+                            <li><a href="index.html">Home 01</a></li>
+                            <li><a href="index-2.html">Home 02</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="about.html">About Us</a>
+                        <ul>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="team-member.html">Team Member</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="shop.html">Shop</a>
+                        <ul>
+                            <li><a href="shop.html">Our Shop</a></li>
+                            <li><a href="product-single.html">Product Details</a></li>
+                            <li><a href="wishlist.html">My Wishlist</a></li>
+                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="reset-password.html">Forgot Password</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="trekking.html">Trekking</a></li>
+                    <li class="dropdown"><a href="#">Pages</a>
+                        <ul>
+                            <li><a href="activities.html">Activities</a></li>
+                            <li><a href="destinations-2.html">Destinations 02</a></li>
+                            <li><a href="tours.html">Tours</a></li>
+                            <li><a href="packages.html">Packages 01</a></li>
+                            <li><a href="packages-2.html">Packages 02</a></li>
+                            <li><a href="booking.html">Booking</a></li>
+                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                            <li><a href="error-page.html">404 Page</a></li>
+                        </ul>
+                    </li>
+                    <li class="current dropdown"><a href="blog.html">News</a>
+                        <ul>
+                            <li><a href="blog.html">Our Blog</a></li>
+                            <li><a href="blog-2.html">Blog Classic</a></li>
+                            <li><a href="blog-single.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div><!-- /.Side-menu -->
+            
+            <div class="links-box clearfix">
+                <div class="clearfix">
+                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login<i class="icon far fa-angle-right"></i></span></a></div>
+                    <div class="link"><a href="signup.html" class="theme-btn btn-style-two"><span>Sign Up<i class="icon far fa-angle-right"></i></span></a></div>
+                </div>
+            </div>
+        
+        </div><!-- / Hidden Bar Wrapper -->
+    </section>
+    <!-- / Hidden Bar -->
+
+    <div class="cart-backdrop"></div>
+    <!--Cart Sidebar-->
+    <div class="cart-sidebar">
+        <div class="cart-side-inner">
+            <div class="cart-side-header">
+                <div class="closer-btn"><span>Close</span></div>
+                <h5>Shopping Cart</h5>
+            </div>
+            <div class="prod-box">
+                <div class="prod-block">
+                    <div class="prod-inner">
+                        <div class="prod-thumb"><a href="#"><img src="images/resource/shop/shop-thumb-1.jpg" alt=""></a></div>
+                        <div class="remove-item"><a href="#"><i class="far fa-times"></i></a></div>
+                        <div class="prod-title"><a href="#">Smart Air Bag Travel</a></div>
+                        <div class="quantity-box">
+                            <div class="item-quantity">
+                                <input class="qty-spinner" type="text" value="1" name="quantity">
+                            </div>
+                        </div>
+                        <div class="calculations">1 x <span>$225.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-content">
+            <div class="count clearfix">
+                <span class="ttl">Subtotal</span>
+                <span class="dtl">$225.00</span>
+            </div>
+            <div class="links clearfix">
+                <div class="left"><a href="#" class="theme-btn btn-style-one"><span>View Cart</span></a></div>
+                <div class="right"><a href="#" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="inner-banner">
+        <div class="image-layer" style="background-image: url(images/background/banner-image-1.jpg);"></div>
+        <div class="auto-container">
+            <div class="content-box">
+                <h2>Blog Classic</h2>
+                <div class="bread-crumb">
+                    <ul class="clearfix">
+                        <li><span class="icon-home fa fa-home"></span><a href="index.html">Home</a></li>
+                        <li class="current">Blog Classic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
+	
+	<!-- Sidebar Page Container -->
+    <section class="sidebar-page-container">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+			
+				<!-- Content Side -->
+				<div class="content-side col-xl-8 col-lg-7 col-md-12 col-sm-12">
+					<div class="blog-classic">
+						
+						<!-- Block -->
+						<div class="news-block-two">
+							<div class="inner-box">
+								<div class="image-box">
+									<div class="image"><a href="blog-single.html"><img src="images/resource/news-4.jpg" alt="" title=""></a></div>
+									<div class="overlay-box">
+										<div class="category">Trekking</div>
+										<h4><a href="blog-single.html">THE UPCOMING WBC CHAMP SHIPS 2022 in feb</a></h4>
+									</div>
+								</div>
+								<div class="lower-content">
+									<div class="info">
+										<span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+									</div>
+									<div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in...</div>
+									<a class="theme-btn read-more" href="blog-single.html">Read More <span class="fa fa-angle-right"></span></a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Block -->
+						<div class="news-block-two">
+							<div class="inner-box">
+								<div class="image-box">
+									<div class="image"><a href="blog-single.html"><img src="images/resource/news-4.jpg" alt="" title=""></a></div>
+									<div class="overlay-box">
+										<div class="category">Trekking</div>
+										<h4><a href="blog-single.html">THE UPCOMING WBC CHAMP SHIPS 2022 in feb</a></h4>
+									</div>
+								</div>
+								<div class="lower-content">
+									<div class="info">
+										<span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+									</div>
+									<div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in...</div>
+									<a class="theme-btn read-more" href="blog-single.html">Read More <span class="fa fa-angle-right"></span></a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Block -->
+						<div class="news-block-two">
+							<div class="inner-box">
+								<div class="image-box">
+									<div class="image"><a href="blog-single.html"><img src="images/resource/news-4.jpg" alt="" title=""></a></div>
+									<div class="overlay-box">
+										<div class="category">Trekking</div>
+										<h4><a href="blog-single.html">THE UPCOMING WBC CHAMP SHIPS 2022 in feb</a></h4>
+									</div>
+								</div>
+								<div class="lower-content">
+									<div class="info">
+										<span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+									</div>
+									<div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in...</div>
+									<a class="theme-btn read-more" href="blog-single.html">Read More <span class="fa fa-angle-right"></span></a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Block -->
+						<div class="news-block-two">
+							<div class="inner-box">
+								<div class="image-box">
+									<div class="image"><a href="blog-single.html"><img src="images/resource/news-4.jpg" alt="" title=""></a></div>
+									<div class="overlay-box">
+										<div class="category">Trekking</div>
+										<h4><a href="blog-single.html">THE UPCOMING WBC CHAMP SHIPS 2022 in feb</a></h4>
+									</div>
+								</div>
+								<div class="lower-content">
+									<div class="info">
+										<span class="i-block">By : Sword Joy</span> &ensp; | &ensp; <span class="i-block">20 March 2022</span>
+									</div>
+									<div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in...</div>
+									<a class="theme-btn read-more" href="blog-single.html">Read More <span class="fa fa-angle-right"></span></a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Styled Pagination -->
+						<ul class="styled-pagination">
+							<li class="prev"><a href="#">Prev</a></li>
+							<li><a href="#" class="active">01</a></li>
+							<li><a href="#">02</a></li>
+							<li><a href="#">03</a></li>
+							<li><a href="#">04</a></li>
+							<li><a href="#">05</a></li>
+							<li class="next"><a href="#">Next</a></li>
+						</ul>
+						<!-- End Styled Pagination -->
+						
+					</div>
+				</div>
+				
+				<!-- Sidebar Column -->
+				<div class="sidebar-column col-xl-4 col-lg-5 col-md-12 col-sm-12">
+					<div class="inner-column">
+						
+						<!-- Search Widget -->
+						<div class="sidebar-widget search-box">
+							<div class="sidebar-title">
+								<h5>Search</h5>
+							</div>
+							
+							<form method="post" action="contact.html">
+								<div class="form-group">
+									<input type="search" name="search-field" value="" placeholder="Search Here ..." required>
+									<button type="submit"><span class="icon fa fa-search"></span></button>
+								</div>
+							</form>
+							
+						</div>
+						
+						<!-- Follow Widget -->
+						<div class="sidebar-widget follow-widget">
+							<div class="sidebar-title">
+								<h5>Follow us</h5>
+							</div>
+							<ul class="social-list">
+								<li class="facebook"><span class="icon fab fa-facebook-f fa-fw"></span> <strong>1250M +</strong> Followers</li>
+								<li class="twitter"><span class="icon fab fa-twitter fa-fw"></span> <strong>1250M +</strong> Followers</li>
+								<li class="youtube"><span class="icon fab fa-youtube fa-fw"></span> <strong>1250M +</strong> Followers</li>
+								<li class="linkedin"><span class="icon fab fa-linkedin-in fa-fw"></span> <strong>1250M +</strong> Followers</li>
+							</ul>
+						</div>
+						
+						<!-- Category Widget -->
+						<div class="sidebar-widget category-widget">
+							<div class="sidebar-title">
+								<h5>Category</h5>
+							</div>
+							<ul class="sidebar-category-list">
+                                <li style="background-image: url(images/background/category-1.jpg)">
+                                    <span class="txt">Therapy</span> <span class="number">05</span>
+                                </li>
+                                <li style="background-image: url(images/background/category-2.jpg)">
+                                    <span class="txt">Beauty Items</span> <span class="number">09</span>
+                                </li>
+                                <li style="background-image: url(images/background/category-3.jpg)">
+                                    <span class="txt">Body Sliming</span> <span class="number">07</span>
+                                </li>
+                                <li style="background-image: url(images/background/category-4.jpg)">
+                                    <span class="txt">Fashion Fitness</span> <span class="number">10</span>
+                                </li>
+                            </ul>
+						</div>
+						
+						<!-- Search Widget -->
+						<div class="sidebar-widget popular-posts">
+							<div class="sidebar-title">
+								<h5>Recent Post</h5>
+							</div>
+							
+							<article class="post">
+								<figure class="post-thumb"><img src="images/resource/post-thumb-1.jpg" alt=""><a href="news-detail.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
+								<div class="text"><a href="news-detail.html">the best beach hikes on the west coast</a></div>
+								<div class="post-info">20 March 2022</div>
+							</article>
+							
+							<article class="post">
+								<figure class="post-thumb"><img src="images/resource/post-thumb-2.jpg" alt=""><a href="news-detail.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
+								<div class="text"><a href="news-detail.html">New: Freehand Template for the whole</a></div>
+								<div class="post-info">20 March 2022</div>
+							</article>
+							
+							<article class="post">
+								<figure class="post-thumb"><img src="images/resource/post-thumb-3.jpg" alt=""><a href="news-detail.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
+								<div class="text"><a href="news-detail.html">Security isn’t just a techn logy problem it’s</a></div>
+								<div class="post-info">20 March 2022</div>
+							</article>
+							
+						</div>
+						
+						<!-- Buy Treker Widget -->
+						<div class="sidebar-widget buy-treker-widget">
+							<div class="widget-content" style="background-image: url(images/background/buy.jpg)">
+								<div class="logo">
+									<a href="index.html"><img src="images/icons/buy-treker.svg" alt="" /></a>
+								</div>
+								<div class="text">Awesome Trekking Travel <br> Theme !</div>
+								<a href="#" class="theme-btn buy-now">Buy Now</a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	
+	
+    <!--Main Footer-->
+    <footer class="footer-two">
+        <div class="bg-layer" style="background-image: url(images/background/footer-bg.png);"></div>
+        <div class="upper-section">
+            <div class="auto-container">
+
+                <div class="row clearfix">
+
+                    <div class="footer-column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <!--Logo-->
+                        <div class="footer-logo">
+                            <div class="logo"><a href="index.html" title="Treker"><img src="images/logo.svg" alt="" title="Treker"></a></div>
+                        </div>
+                        <div class="footer-text">Treker was founded in 1991 by a group of safety-focused professionals who created The Wingman Standard for rigorously vetting air charter operators.</div>
+                        <div class="social-links">
+                            <ul class="clearfix">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="big-column col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+
+                            <div class="footer-column col-lg-3 col-md-4 col-sm-12">
+                                <h6>Exlopre Treker</h6>
+                                <div class="links">
+                                    <ul>
+                                        <li><a href="#">Account</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Affilitate</a></li><li><a href="#">Program</a></li>
+                                        <li><a href="#">Our Partner</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="footer-column col-lg-3 col-md-4 col-sm-12">
+                                <h6>Quick lInks</h6>
+                                <div class="links">
+                                    <ul>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">News & press</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">FAQs</a></li>
+                                        <li><a href="#">Careers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="info-block col-lg-6 col-md-4 col-sm-12">
+                                <h6>Address</h6>
+                                <div class="info">
+                                    <ul>
+                                        <li>Europe 45 Gloucester Road London DT1M 3BF <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                        <li>Europe 45 Gloucester Road London DT1M 3BF <a href="tel:+44(0)2036715709">+44 (0)20 3671 5709</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="f-bottom">
+            <div class="auto-container">
+                <div class="inner clearfix">
+                    <div class="copyright">Copyright &copy; 2022 Treker. All Rights Reserved. Designed by ThemeIM</div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+<!--End pagewrapper--> 
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon"><img src="images/icons/arrow-up.svg" alt="" title="Go To Top"></span></div>
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/bxslider.js"></script>
+<script src="js/touchspin.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom-script.js"></script>
+</body>
+</html>

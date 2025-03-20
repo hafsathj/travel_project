@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Booking Successful!</h2>
+        <p>Thank you, <strong>{{ booking.full_name }}</strong>. Your booking has been confirmed!</p>
+    
+        <h3>Booking Details:</h3>
+        <ul>
+            <li><strong>Email:</strong> {{ booking.email }}</li>
+            <li><strong>Phone:</strong> {{ booking.phone }}</li>
+            <li><strong>Address:</strong> {{ booking.address|default:"Not provided" }}</li>
+            <li><strong>Destination:</strong> {{ booking.destination.name|default:"Not specified" }}</li>
+            <li><strong>Activity:</strong> {{ booking.activity.name }}</li>
+            <li><strong>Date:</strong> {{ booking.date }}</li>
+            <li><strong>Time:</strong> {{ booking.time }}</li>
+            <li><strong>Number of People:</strong> {{ booking.number_of_people }}</li>
+            <li><strong>Total Price:</strong> ${{ booking.total_price }}</li>
+            <li><strong>Status:</strong> {{ booking.get_status_display }}</li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function () {
+            const name = "{{ booking.full_name }}";
+            const email = "{{ booking.email }}";
+            const phone = "{{ booking.phone }}";
+            const destination = "{{ booking.destination.name|default:'N/A' }}";
+            const activity = "{{ booking.activity.name }}";
+            const date = "{{ booking.date }}";
+            const time = "{{ booking.time }}";
+            const people = "{{ booking.number_of_people }}";
+
+            const message = `Hello, I want to book a trip!%0A
+            *Name:* ${name}%0A
+            *Email:* ${email}%0A
+            *Phone:* ${phone}%0A
+            *Destination:* ${destination}%0A
+            *Activity:* ${activity}%0A
+            *Date:* ${date}%0A
+            *Time:* ${time}%0A
+            *People:* ${people}%0A`;
+
+            const whatsappNumber = "9645190181";
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            // Redirect user to WhatsApp automatically after 3 seconds
+            setTimeout(function () {
+                window.location.href = whatsappUrl;
+            }, 3000);
+        };
+    </script>
+
+    <p>Redirecting you to WhatsApp...</p>
+
+    <p>If you are not redirected, <a id="whatsappLink" href="#">click here</a>.</p>
+
+    <script>
+        document.getElementById("whatsappLink").href = `https://wa.me/9645190181?text=${message}`;
+    </script>
+</body>
+</html>

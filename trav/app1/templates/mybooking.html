@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% comment %} <section class="booking-section" id="book">
+        <div class="container">
+            <div class="booking-title">
+                <h2>Book Your Trip Now</h2>
+            </div>
+    
+            <!-- Display Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+    
+            <div class="row">
+                <!-- Booking Form -->
+                <div class="col-md-7">
+                    <div class="booking-form">
+                        <form id="bookingForm" method="post" onsubmit="return handleBookingSubmit(event)">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="full-name">Full Name *</label>
+                                    <input type="text" id="full-name" name="full_name" placeholder="Enter your name" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="address">Address *</label>
+                                    <input type="text" id="address" name="address" placeholder="Enter your address" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone">Phone *</label>
+                                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="destination">Destination *</label>
+                                    <select id="destination" name="destination">
+                                        <option value="">Select Destination</option>
+                                        {% for booking in bookings %}
+                                            <option value="{{ booking.destination.id }}">{{ booking.destination.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="activity">Activity *</label>
+                                    <select id="activity" name="activity" required>
+                                        <option value="">Select Activity</option>
+                                        {% for booking in bookings %}
+                                            <option value="{{ booking.activity.id }}">{{ booking.activity.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="time">Choose Time *</label>
+                                    <input type="time" id="time" name="time" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="date">Date *</label>
+                                    <input type="date" id="date" name="date" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="people">Number of People *</label>
+                                    <input type="number" id="people" name="number_of_people" min="1" required />
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="whatsapp-btn">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20px" alt="WhatsApp Icon" />
+                                        <span>Book Now</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+     {% comment %} <div class="container mt-4">
+        <h2>My Bookings</h2>
+        {% if bookings %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Destination</th>
+                        <th>Activity</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>People</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.user.username}}</td>
+                         <td>{{ booking.destination.name }}</td>
+                        <td>{{ booking.activity.name }}</td>
+                        <td>{{ booking.date }}</td>
+                        <td>{{ booking.time }}</td>
+                        <td>{{ booking.number_of_people  }}</td>
+                        <td>{{ booking.status }}</td> 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You have no bookings yet.</p>
+        {% endif %}
+    </div>  {% endcomment %}
+    <h2>My Bookings</h2>
+<ul>
+    {% for booking in bookings %}
+        <li>{{ booking.activity.name }} at {{ booking.destination.name }} on {{ booking.date }}</li>
+    {% empty %}
+        <li>No bookings found.</li>
+    {% endfor %}
+</ul>
+<h2>My Destinations</h2>
+<ul>
+    {% for destination in destinations %}
+        <li>{{ destination.name }} - {{ destination.location }}</li>
+    {% empty %}
+        <li>No destinations found.</li>
+    {% endfor %}
+</ul>
+<h2>My Activities</h2>
+<ul>
+    {% for activity in activities %}
+        <li>{{ activity.name }} - {{ activity.activity_type }}</li>
+    {% empty %}
+        <li>No activities found.</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

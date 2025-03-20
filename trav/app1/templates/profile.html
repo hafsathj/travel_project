@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Profile Details</h2>
+    
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Full Name:</strong> <span id="full_name">{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
+                <p><strong>Email:</strong> <span id="email">{{ request.user.email }}</span></p>
+                <p><strong>Phone Number:</strong> <span id="phone_number">{{ profile.phone_number }}</span></p>
+                <p><strong>Location:</strong> <span id="location">{{ profile.location }}</span></p>
+    
+                <!-- Edit Button -->
+                <button class="btn btn-primary" onclick="enableEdit()">Edit Profile</button>
+            </div>
+        </div>
+    
+        <!-- Hidden Edit Form -->
+        <div id="editProfileForm" style="display: none;" class="mt-3">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <label>Full Name:</label>
+                <input type="text" name="full_name" class="form-control" value="{{ request.user.first_name }} {{ request.user.last_name }}">
+    
+                <label>Email:</label>
+                <input type="email" name="email" class="form-control" value="{{ request.user.email }}">
+    
+                <label>New Password (leave blank to keep current password):</label>
+                <input type="password" name="password" class="form-control">
+    
+                <label>Phone Number:</label>
+                <input type="text" name="phone_number" class="form-control" value="{{ profile.phone_number }}">
+    
+                <label>Location:</label>
+                <input type="text" name="location" class="form-control" value="{{ profile.location }}">
+    
+                <button type="submit" class="btn btn-success mt-2">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function enableEdit() {
+            document.getElementById('editProfileForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

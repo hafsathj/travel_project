@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #146c43;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 280px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin: 10px 0 5px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            background: #198754;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #146c43;
+        }
+
+        .no-results {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Results</h2>
+    
+        {% if destinations %}
+            <div class="card-container">
+                {% for destination in destinations %}
+                    <div class="card">
+                        <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+                        <h3>{{ destination.name }}</h3>
+                        <p><strong>Category:</strong> {{ destination.category }}</p>
+                        <p><strong>Location:</strong> {{ destination.location }}</p>
+                        <p><strong>Price:</strong> ${{ destination.price }}</p>
+                        <a href="{% url 'destination_detail' destination.id %}" class="btn btn-success">View Details</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No destinations found matching your search criteria.</p>
+        {% endif %}
+    
+        <a href="{% url 'index' %}" class="btn btn-secondary">Back to Search</a>
+    </div>
+</body>
+</html>
