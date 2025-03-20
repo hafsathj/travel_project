@@ -126,22 +126,6 @@
         <li>No bookings found.</li>
     {% endfor %}
 </ul>
-<h2>My Destinations</h2>
-<ul>
-    {% for destination in destinations %}
-        <li>{{ destination.name }} - {{ destination.location }}</li>
-    {% empty %}
-        <li>No destinations found.</li>
-    {% endfor %}
-</ul>
-<h2>My Activities</h2>
-<ul>
-    {% for activity in activities %}
-        <li>{{ activity.name }} - {{ activity.activity_type }}</li>
-    {% empty %}
-        <li>No activities found.</li>
-    {% endfor %}
-</ul>
 
 </body>
 </html>

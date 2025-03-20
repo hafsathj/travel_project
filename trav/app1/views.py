@@ -274,10 +274,10 @@ def booking_confirmation(request, booking_id):
     return render(request, 'booking_confirmation.html', {'booking': booking})
 
 
-def user_bookings(request):
-    name = request.GET.get('name', 'Guest')
-    bookings = ActivityBooking.objects.filter(name=request.GET.get('name', 'Guest'))
-    return render(request, 'travel/user_bookings.html', {'bookings': bookings})
+# def user_bookings(request):
+#     name = request.GET.get('name', 'Guest')
+#     bookings = ActivityBooking.objects.filter(name=request.GET.get('name', 'Guest'))
+#     return render(request, 'travel/user_bookings.html', {'bookings': bookings})
 
 
 
@@ -407,16 +407,7 @@ def profile_view(request):
 @login_required
 def my_bookings(request):
     
-    # user_bookings = ActivityBooking.objects.filter(user=request.user)
-    # user_destinations = Destination.objects.filter(bookings__user=request.user).distinct()
-    # user_activities = Activity.objects.filter(activity_bookings__user=request.user).distinct()
-    user_bookings = ActivityBooking.objects.filter(profile=request.user.profile)
-    user_destinations = Destination.objects.filter(bookings__user=request.user).distinct()
-    user_activities = Activity.objects.filter(activity_bookings__user=request.user).distinct()
-
-    context = {
-        'bookings': user_bookings,
-        'destinations': user_destinations,
-        'activities': user_activities,
-    }
-    return render(request, 'mybooking.html', context)
+    profile = request.user.profile 
+    bookings = ActivityBooking.objects.filter(profile=profile)  
+    
+    return render(request, 'mybooking.html', {'bookings':bookings})

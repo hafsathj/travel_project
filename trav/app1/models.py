@@ -53,9 +53,8 @@ class Activity(models.Model):
         return f"{self.name} - {self.price}"  # Show price as it is
 
 class ActivityBooking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookings",null=True,blank=True)  
+    
     profile = models.ForeignKey("Profile", on_delete=models.SET_NULL, null=True, blank=True) 
-
     full_name= models.CharField(max_length=255, null=True, blank=True)
     email=models.EmailField(null=True,blank=True)
     address=models.TextField(null=True, blank=True)
@@ -65,7 +64,7 @@ class ActivityBooking(models.Model):
     date = models.DateField()
     time = models.TimeField()
     number_of_people = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     status = models.CharField(max_length=20, choices=[
         ('pending', 'Pending'),
         ('confirmed', 'Confirmed'),
