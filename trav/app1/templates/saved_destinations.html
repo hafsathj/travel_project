@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Saved Destinations</h2>
+<div class="row">
+    {% for saved in saved_destinations %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ saved.destination.image.url }}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ saved.destination.name }}</h5>
+                    <p class="card-text">{{ saved.destination.description }}</p>
+                    <a href="{% url 'destination_detail' saved.destination.id %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No saved destinations yet.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

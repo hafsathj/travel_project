@@ -31,8 +31,9 @@ urlpatterns = [
     path('submit-review/', views.submit_review, name='submit_review'),
     path('profile/', views.profile_view, name='profile'),
     path('my-bookings/', views.my_bookings, name='my-bookings'),
-    # path('my-bookings/', views.my_bookings, name='my_bookings'),
-    # path('saved-destinations/', views.saved_destinations, name='saved_destinations'),
+    # path('save_destination/<int:destination_id>/', views.save_destination, name='save_destination'),
+    path('save-destination/', views.save_destination, name="save_destination"),
+    path('saved_destinations/', views.saved_destinations, name='saved_destinations'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

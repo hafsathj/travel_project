@@ -2,17 +2,19 @@ from django.shortcuts import render
 from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.urls import reverse
-from .models import ActivityBooking, Destination, Activity
+from .models import ActivityBooking, Destination, Activity, SavedDestination
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Destination, Activity, UserPreference, ActivityBooking, Review
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
+from django.views.decorators.csrf import csrf_exempt
 import numpy as np
 from django.core.paginator import Paginator
 from django.core.serializers import serialize
 from django.http import JsonResponse
 from geopy.distance import geodesic
 import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import ActivityBooking, Destination, Activity
 from django.contrib import messages
@@ -68,8 +70,12 @@ def destination(request):
 
     for destination in destinations:
         destination.formatted_price = format_price(destination.price)
-
-    return render(request, 'destinations.html', {'destination_list': destinations})
+    if request.user.is_authenticated:
+        saved_destinations = SavedDestination.objects.filter(user=request.user)
+    else:
+        saved_destinations = [] 
+    
+    return render(request, 'destinations.html', {'destination_list': destinations ,'saved_destinations': saved_destinations})
    
 def trekking(request):
     activities = Activity.objects.all()
@@ -411,3 +417,39 @@ def my_bookings(request):
     bookings = ActivityBooking.objects.filter(profile=profile)  
     
     return render(request, 'mybooking.html', {'bookings':bookings})
+
+
+# @login_required
+# def save_destination(request, destination_id):
+#     destination = get_object_or_404(Destination, id=destination_id)
+#     saved, created = SavedDestination.objects.get_or_create(user=request.user, destination=destination)
+    
+#     if not created:
+#         saved.delete()  
+#         return JsonResponse({'status': 'removed'})
+    
+#     return JsonResponse({'status': 'saved'})
+
+@csrf_exempt
+@login_required
+def save_destination(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            destination_id = data.get("destination_id")
+
+            destination = Destination.objects.get(id=destination_id)
+            saved, created = SavedDestination.objects.get_or_create(user=request.user, destination=destination)
+
+            if created:
+                return JsonResponse({"success": True, "message": "Destination saved!"})
+            else:
+                return JsonResponse({"success": False, "message": "Already saved!"})
+        except Exception as e:
+            return JsonResponse({"success": False, "message": str(e)})  # Show the exact error
+
+    return JsonResponse({"success": False, "message": "Invalid request"})
+@login_required
+def saved_destinations(request):
+    saved_destinations = SavedDestination.objects.filter(user=request.user)
+    return render(request, 'saved_destinations.html', {'saved_destinations': saved_destinations})
